@@ -18,6 +18,10 @@ At inference time, the model operates in two turns:
 
 ```
 RefineSVG/
+├── utils/                             # Utility scripts
+│   ├── build_svg_prompt_initialized_model.py  # SVG vocab extension with semantic init
+│   └── svg_vocab.tsv                          # SVG token vocabulary (725 tokens)
+│
 ├── LlamaFactory/                      # LLaMA-Factory framework (Stage 1 & 2 SFT)
 │   ├── data/                          # Dataset configs and data placeholders
 │   │   ├── dataset_info.json          # Dataset registry (SVG datasets only)
@@ -76,107 +80,60 @@ RefineSVG/
 
 ## Prerequisites
 
-- Python 3.10+
-- PyTorch 2.4+
-- CUDA 12.1+
+- CUDA 12.8
 - 4 nodes × 8 GPUs (80GB+ VRAM each) for production training
 - 1 node × 8 GPUs for smoke testing
 
-## Installation
+---
 
-### 1. Install the modified verl framework (for Stage 3)
+## Step 0: Vocabulary Extension (SVG Tokens)
+
+Before training, extend the base model's tokenizer with 725 SVG-specific tokens (tag names, attribute names, color values, numeric patterns, etc.). Each new token embedding is initialized from the mean embedding of its semantic description (InternSVG-style prompt-based initialization), which significantly improves convergence compared to random initialization.
 
 ```bash
-cd verl
-pip install -e .
+python utils/build_svg_prompt_initialized_model.py \
+    --src-model /path/to/Qwen2.5-VL-7B-Instruct \
+    --dst-model /path/to/Qwen2.5-VL-7B-Instruct-SVG \
+    --vocab-tsv utils/svg_vocab.tsv \
+    --prompt-field en_prompt \
+    --trust-remote-code \
+    --torch-dtype bfloat16 \
+    --device-map auto
 ```
 
-### 2. Install LLaMA-Factory (for Stage 1 & 2)
+| Argument | Description |
+|----------|-------------|
+| `--src-model` | Path to the base Qwen2.5-VL model (e.g., `Qwen2.5-VL-7B-Instruct`) |
+| `--dst-model` | Output directory for the extended model |
+| `--vocab-tsv` | TSV file with SVG tokens and semantic prompts (provided in `utils/`) |
+| `--prompt-field` | Column in TSV for semantic initialization (`en_prompt` recommended) |
+| `--torch-dtype` | Model loading dtype (`bfloat16` recommended for 7B) |
+| `--device-map` | Device placement (`auto` for multi-GPU, `none` for CPU-only) |
+
+**Expected output:** Original vocab 151,665 → New vocab 152,390 (+725 tokens). Generates `added_tokens_report.json` and `added_tokens_report.txt` in the output directory.
+
+The extended model at `--dst-model` is used as `model_name_or_path` for Stage 1 SFT below.
+
+---
+
+## Part I: SFT Training (Stage 1 & 2)
+
+### Environment Setup
 
 ```bash
+conda create -n SFT python=3.11 -y
+conda activate SFT
+
 cd LlamaFactory
 pip install -e .
+pip install -r requirements/metrics.txt
 ```
 
-### 3. Install additional dependencies
+### Stage 1: SFT — Image-to-SVG Generation
 
-```bash
-pip install cairosvg Pillow requests tokenizers
-pip install sglang  # For SGLang rollout backend
-```
+Stage 1 trains the vocab-extended model (from [Step 0](#step-0-vocabulary-extension-svg-tokens)) to generate SVG code from images using supervised fine-tuning on SVGMix-256.
 
-## Data Preparation
-
-### Download training data
-
-The training data is based on SVGMix-256 with stratified splits. Download from HuggingFace:
-
-```bash
-# Download and prepare training/validation images
-# Place images in images_whitebg_train/ and images_whitebg_val/
-# Each image should be 256×256 RGB PNG with white background
-```
-
-### Generate parquet datasets
-
-```bash
-# Edit paths in prepare_svg_refine_parquet.py:
-#   DATA_DIR  - directory containing train/val image+SVG data
-#   PROJECT_DIR - this project directory
-
-python SVG_refine_grpo/prepare_svg_refine_parquet.py
-```
-
-This creates `train.parquet` and `val.parquet` with the following schema:
-- `data_source`: Dataset identifier
-- `agent_name`: `"svg_react_agent"` (for multi-turn agent routing)
-- `prompt`: Chat-format prompt with `<image>` placeholder
-- `images`: List of image file paths
-- `ability`: `"svg_generation"`
-- `reward_model.ground_truth`: Ground-truth SVG code
-- `extra_info`: Metadata (SVG length, difficulty band, etc.)
-- `uid`: Unique sample identifier
-
-## Configuration
-
-### Path Setup
-
-All configs use placeholder variables. Before running, set:
-
-```bash
-export VERL_DIR=/path/to/RefineSVG/verl           # Modified verl framework
-export PROJECT_DIR=/path/to/RefineSVG/SVG_refine_grpo
-export MODEL_PATH=/path/to/sft_checkpoint  # SFT-initialized model
-export OUTPUT_DIR=/path/to/outputs       # Checkpoint & log output
-```
-
-Alternatively, edit the YAML configs directly (under `configs/`).
-
-### Model
-
-The training starts from an SFT-initialized Qwen2.5-VL checkpoint. Set `actor_rollout_ref.model.path` in the YAML config to point to your SFT model.
-
-### Reward API Services
-
-The reward function calls external API servers for CLIP, DINOv2, and LPIPS similarity computation. Start them before training:
-
-```bash
-# CLIP similarity API (port 18080)
-cd SVG_refine_grpo/clip_similarity_api
-export CLIP_MODEL_PATH=/path/to/openai/clip-vit-large-patch14
-bash start_clip_similarity_api.sh
-
-# DINOv2 and LPIPS APIs should be started similarly on ports 18090 and 18100
-# See clip_similarity_api/README.md for details
-```
-
-Update the API URLs in the training config if your servers run on different hosts/ports.
-
-## Stage 1: SFT - Image-to-SVG Generation
-
-Stage 1 trains the base model to generate SVG code from images using supervised fine-tuning on SVGMix-256.
-
-### Data Preparation
+#### Data Preparation
 
 1. Download the SVGMix-256 dataset and prepare it in ShareGPT format:
    - Place JSONL files in `LlamaFactory/data/svgmix256_sft_canvas256/`
@@ -185,10 +142,10 @@ Stage 1 trains the base model to generate SVG code from images using supervised 
 
 2. Each sample contains a single-turn conversation: user provides an image, assistant responds with SVG code.
 
-### Training (4 nodes × 8 GPUs)
+#### Training (4 nodes × 8 GPUs)
 
 ```bash
-# Set LLAMA_FACTORY_DIR in the YAML config, then launch on each node:
+# Launch on each node:
 # Node 0 (head):
 bash LlamaFactory/examples/train_full/qwen2_5vl_7b_full_sft_sh_rank0.sh
 # Node 1-3:
@@ -196,12 +153,12 @@ bash LlamaFactory/examples/train_full/qwen2_5vl_7b_full_sft_sh_rank{1,2,3}.sh
 ```
 
 Edit the YAML config (`qwen2_5vl_7b_svgmix256_full_sft.yaml`) to set:
-- `model_name_or_path`: Path to Qwen2.5-VL-7B-Instruct base model
+- `model_name_or_path`: Path to the vocab-extended model from Step 0 (e.g., `Qwen2.5-VL-7B-Instruct-SVG`)
 - `dataset_dir` / `media_dir`: Path to `LlamaFactory/data/`
 - `output_dir`: Where to save checkpoints
 - `MASTER_ADDR` in the shell scripts: IP of the head node
 
-### Key Hyperparameters (Stage 1)
+#### Key Hyperparameters (Stage 1)
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
@@ -212,11 +169,11 @@ Edit the YAML config (`qwen2_5vl_7b_svgmix256_full_sft.yaml`) to set:
 | DeepSpeed | ZeRO Stage 2 | Memory-efficient distributed training |
 | `freeze_vision_tower` | true | Only train language model |
 
-## Stage 2: SFT - Multi-Turn SVG Repair
+### Stage 2: SFT — Multi-Turn SVG Repair
 
 Stage 2 fine-tunes the Stage 1 model on multi-turn repair conversations, where the model learns to refine SVGs based on visual feedback.
 
-### Data Preparation
+#### Data Preparation
 
 1. Prepare multi-turn repair data in ShareGPT format:
    - Place JSONL files in `LlamaFactory/data/svg_repair_react_once_structmatch/`
@@ -227,7 +184,7 @@ Stage 2 fine-tunes the Stage 1 model on multi-turn repair conversations, where t
    - `svg_repair_react_once_structmatch_train_nodiff` / `_eval_nodiff`: Without visual diff (recommended)
    - `svg_repair_react_once_structmatch_train` / `_eval`: With visual diff
 
-### Training (4 nodes × 8 GPUs)
+#### Training (4 nodes × 8 GPUs)
 
 ```bash
 # 7B model:
@@ -241,7 +198,7 @@ Edit the YAML config to set:
 - `model_name_or_path`: Path to Stage 1 checkpoint
 - `output_dir`: Where to save Stage 2 checkpoints
 
-### Key Hyperparameters (Stage 2)
+#### Key Hyperparameters (Stage 2)
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
@@ -250,19 +207,103 @@ Edit the YAML config to set:
 | Cutoff length | 24576 | Longer for multi-turn |
 | Batch size | 1 × 16 | Per-GPU batch × gradient accumulation |
 
-## Stage 3: GRPO - Reinforcement Learning
+---
 
-The Stage 2 SFT checkpoint serves as the initial policy for GRPO training.
+## Part II: GRPO Reinforcement Learning (Stage 3)
 
-### Smoke Test (single node, 8 GPUs)
+### Environment Setup
+
+```bash
+conda create -n RefineSVG python=3.12 -y
+conda activate RefineSVG
+
+# Install vLLM + SGLang (with or without Megatron)
+bash scripts/install_vllm_sglang_mcore.sh
+# Or without Megatron:
+# USE_MEGATRON=0 bash scripts/install_vllm_sglang_mcore.sh
+
+# Install the modified verl framework
+cd verl
+pip install --no-deps -e .
+cd ..
+
+# Flash Attention
+pip install flash-attn --no-build-isolation
+
+# Pin transformers version for compatibility
+pip install "transformers==4.57.0"
+
+# SVG rendering system dependencies
+apt-get update && apt-get install -y \
+    libcairo2 libpango-1.0-0 libgdk-pixbuf-2.0-0 \
+    libffi-dev shared-mime-info
+
+# Python rendering & data dependencies
+pip install -U pip setuptools wheel
+pip install -U pyarrow cairosvg pillow orjson datasets
+```
+
+### Configuration
+
+#### Path Setup
+
+All configs use placeholder variables. Before running, set:
+
+```bash
+export VERL_DIR=/path/to/RefineSVG/verl
+export PROJECT_DIR=/path/to/RefineSVG/SVG_refine_grpo
+export MODEL_PATH=/path/to/stage2_checkpoint   # Stage 2 SFT output
+export OUTPUT_DIR=/path/to/outputs
+```
+
+Alternatively, edit the YAML configs directly (under `SVG_refine_grpo/configs/`).
+
+#### Reward API Services
+
+The reward function calls external API servers for CLIP, DINOv2, and LPIPS similarity. Start them before training:
+
+```bash
+cd SVG_refine_grpo/clip_similarity_api
+export CLIP_MODEL_PATH=/path/to/openai/clip-vit-large-patch14
+bash start_clip_similarity_api.sh
+
+# DINOv2 and LPIPS APIs should be started similarly on ports 18090 and 18100
+# See clip_similarity_api/README.md for details
+```
+
+Update the API URLs in the training config if your servers run on different hosts/ports.
+
+### Data Preparation
+
+```bash
+# Edit paths in prepare_svg_refine_parquet.py, then run:
+python SVG_refine_grpo/prepare_svg_refine_parquet.py
+```
+
+This creates `train.parquet` and `val.parquet` with the following schema:
+
+| Field | Description |
+|-------|-------------|
+| `data_source` | Dataset identifier |
+| `agent_name` | `"svg_react_agent"` (for multi-turn agent routing) |
+| `prompt` | Chat-format prompt with `<image>` placeholder |
+| `images` | List of image file paths |
+| `ability` | `"svg_generation"` |
+| `reward_model.ground_truth` | Ground-truth SVG code |
+| `extra_info` | Metadata (SVG length, difficulty band, etc.) |
+| `uid` | Unique sample identifier |
+
+### Training
+
+#### Smoke Test (single node, 8 GPUs)
 
 ```bash
 bash SVG_refine_grpo/run_qwen25vl_smoke.sh
 ```
 
-### Production Training
+#### Production Training (4 nodes)
 
-#### 1. Set up Ray cluster (4 nodes)
+**1. Set up Ray cluster:**
 
 ```bash
 # On head node:
@@ -272,7 +313,7 @@ ray start --head --port=6379
 ray start --address=<HEAD_IP>:6379
 ```
 
-#### 2. Launch training
+**2. Launch training:**
 
 ```bash
 # Qwen2.5-VL-7B (recommended)
@@ -285,9 +326,7 @@ bash SVG_refine_grpo/run_qwen25vl_prod.sh
 # (edit run script to use svg_grpo_qwen3vl_prod config)
 ```
 
-#### 3. Hydra overrides
-
-Pass any config override as arguments:
+**3. Hydra overrides:**
 
 ```bash
 bash SVG_refine_grpo/run_qwen25vl7b_prod.sh \
@@ -296,7 +335,7 @@ bash SVG_refine_grpo/run_qwen25vl7b_prod.sh \
     data.train_batch_size=64
 ```
 
-### Key Hyperparameters
+### Key Hyperparameters (Stage 3)
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|

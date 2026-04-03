@@ -1,0 +1,745 @@
+group	token	zh_prompt	en_prompt
+tag_prefix	<svg	Canvas root tag. Defines the drawing space.	Canvas root tag. Defines the drawing space.
+tag_prefix	<path	Shape tag. Draws flexible lines and curves.	Shape tag. Draws flexible lines and curves.
+tag_prefix	<rect	Shape tag. Draws a rectangle.	Shape tag. Draws a rectangle.
+tag_prefix	<circle	Shape tag. Draws a circle.	Shape tag. Draws a circle.
+tag_prefix	<polygon	Shape tag. Draws a closed multi-point polygon.	Shape tag. Draws a closed multi-point polygon.
+tag_prefix	<text	Text tag. Draws a text string.	Text tag. Draws a text string.
+tag_prefix	<ellipse	Shape tag. Draws an ellipse.	Shape tag. Draws an ellipse.
+tag_prefix	<line	Shape tag. Draws a straight line segment.	Shape tag. Draws a straight line segment.
+tag_prefix	<polyline	Shape tag. Draws an open multi-point polyline.	Shape tag. Draws an open multi-point polyline.
+tag_prefix	<tspan	Text sub-tag. Draws a text span inside text.	Text sub-tag. Draws a text span inside text.
+tag_prefix	</svg>	Canvas closing tag. Ends the SVG document root.	Canvas closing tag. Ends the SVG document root.
+tag_prefix	</text>	Text closing tag. Ends a text element.	Text closing tag. Ends a text element.
+tag_prefix	</tspan>	Text span closing tag. Ends a tspan element.	Text span closing tag. Ends a tspan element.
+tag_prefix	/>	Self-closing marker. Ends an element without a separate closing tag.	Self-closing marker. Ends an element without a separate closing tag.
+attr_literal	 viewBox="	Canvas attribute. Sets coordinate system and viewport size.	Canvas attribute. Sets coordinate system and viewport size.
+attr_literal	 xmlns="	Namespace attribute. Declares the XML namespace URI.	Namespace attribute. Declares the XML namespace URI.
+attr_literal	 d="	Geometry attribute. Defines path coordinates and commands.	Geometry attribute. Defines path coordinates and commands.
+attr_literal	 fill="	Style attribute. Sets interior fill color.	Style attribute. Sets interior fill color.
+attr_literal	 stroke="	Style attribute. Sets outline color.	Style attribute. Sets outline color.
+attr_literal	 stroke-width="	Style attribute. Sets outline thickness.	Style attribute. Sets outline thickness.
+attr_literal	 fill-rule="	Style attribute. Sets inside-fill rule for self-intersections.	Style attribute. Sets inside-fill rule for self-intersections.
+attr_literal	 y="	Coordinate attribute. Sets vertical position.	Coordinate attribute. Sets vertical position.
+attr_literal	 x="	Coordinate attribute. Sets horizontal position.	Coordinate attribute. Sets horizontal position.
+attr_literal	 width="	Size attribute. Sets width.	Size attribute. Sets width.
+attr_literal	 height="	Size attribute. Sets height.	Size attribute. Sets height.
+attr_literal	 cy="	Coordinate attribute. Sets center y position.	Coordinate attribute. Sets center y position.
+attr_literal	 cx="	Coordinate attribute. Sets center x position.	Coordinate attribute. Sets center x position.
+attr_literal	 stroke-linejoin="	Style attribute. Sets corner join shape of strokes.	Style attribute. Sets corner join shape of strokes.
+attr_literal	 stroke-linecap="	Style attribute. Sets line cap shape of strokes.	Style attribute. Sets line cap shape of strokes.
+attr_literal	 r="	Size attribute. Sets circle radius.	Size attribute. Sets circle radius.
+attr_literal	 fill-opacity="	Style attribute. Sets fill transparency.	Style attribute. Sets fill transparency.
+attr_literal	 rx="	Size attribute. Sets horizontal radius.	Size attribute. Sets horizontal radius.
+attr_literal	 ry="	Size attribute. Sets vertical radius.	Size attribute. Sets vertical radius.
+attr_literal	 points="	Geometry attribute. Sets vertex list for polyline or polygon.	Geometry attribute. Sets vertex list for polyline or polygon.
+attr_literal	 opacity="	Style attribute. Sets global element transparency.	Style attribute. Sets global element transparency.
+attr_literal	 font-size="	Text style attribute. Sets text size.	Text style attribute. Sets text size.
+attr_literal	 stroke-miterlimit="	Style attribute. Sets miter join limit.	Style attribute. Sets miter join limit.
+attr_literal	 font-family="	Text style attribute. Sets font family.	Text style attribute. Sets font family.
+attr_literal	 x2="	Coordinate attribute. Sets line end x.	Coordinate attribute. Sets line end x.
+attr_literal	 y2="	Coordinate attribute. Sets line end y.	Coordinate attribute. Sets line end y.
+attr_literal	 x1="	Coordinate attribute. Sets line start x.	Coordinate attribute. Sets line start x.
+attr_literal	 y1="	Coordinate attribute. Sets line start y.	Coordinate attribute. Sets line start y.
+attr_literal	 text-anchor="	Text layout attribute. Sets horizontal text alignment.	Text layout attribute. Sets horizontal text alignment.
+attr_literal	 stroke-opacity="	Style attribute. Sets stroke transparency.	Style attribute. Sets stroke transparency.
+path_cmd	M	An SVG path command token M (move to).	An SVG path command token M (move to).
+path_cmd	L	An SVG path command token L (line to).	An SVG path command token L (line to).
+path_cmd	C	An SVG path command token C (cubic Bezier curve to).	An SVG path command token C (cubic Bezier curve to).
+path_cmd	Z	An SVG path command token Z (close path).	An SVG path command token Z (close path).
+special_color	none	A special SVG paint token meaning no paint.	A special SVG paint token meaning no paint.
+special_color	currentColor	A special SVG paint token that uses current text color.	A special SVG paint token that uses current text color.
+special_color	inherit	A special SVG paint token that inherits from parent.	A special SVG paint token that inherits from parent.
+color	#000000	A very dark, neutral gray color. Exact RGB values are Red:0, Green:0, Blue:0. Hex code is #000000.	A very dark, neutral gray color. Exact RGB values are Red:0, Green:0, Blue:0. Hex code is #000000.
+color	#080808	A very dark, neutral gray color. Exact RGB values are Red:8, Green:8, Blue:8. Hex code is #080808.	A very dark, neutral gray color. Exact RGB values are Red:8, Green:8, Blue:8. Hex code is #080808.
+color	#101010	A very dark, neutral gray color. Exact RGB values are Red:16, Green:16, Blue:16. Hex code is #101010.	A very dark, neutral gray color. Exact RGB values are Red:16, Green:16, Blue:16. Hex code is #101010.
+color	#191919	A very dark, neutral gray color. Exact RGB values are Red:25, Green:25, Blue:25. Hex code is #191919.	A very dark, neutral gray color. Exact RGB values are Red:25, Green:25, Blue:25. Hex code is #191919.
+color	#212121	A very dark, neutral gray color. Exact RGB values are Red:33, Green:33, Blue:33. Hex code is #212121.	A very dark, neutral gray color. Exact RGB values are Red:33, Green:33, Blue:33. Hex code is #212121.
+color	#292929	A dark, neutral gray color. Exact RGB values are Red:41, Green:41, Blue:41. Hex code is #292929.	A dark, neutral gray color. Exact RGB values are Red:41, Green:41, Blue:41. Hex code is #292929.
+color	#313131	A dark, neutral gray color. Exact RGB values are Red:49, Green:49, Blue:49. Hex code is #313131.	A dark, neutral gray color. Exact RGB values are Red:49, Green:49, Blue:49. Hex code is #313131.
+color	#3A3A3A	A dark, neutral gray color. Exact RGB values are Red:58, Green:58, Blue:58. Hex code is #3A3A3A.	A dark, neutral gray color. Exact RGB values are Red:58, Green:58, Blue:58. Hex code is #3A3A3A.
+color	#424242	A dark, neutral gray color. Exact RGB values are Red:66, Green:66, Blue:66. Hex code is #424242.	A dark, neutral gray color. Exact RGB values are Red:66, Green:66, Blue:66. Hex code is #424242.
+color	#4A4A4A	A dark, neutral gray color. Exact RGB values are Red:74, Green:74, Blue:74. Hex code is #4A4A4A.	A dark, neutral gray color. Exact RGB values are Red:74, Green:74, Blue:74. Hex code is #4A4A4A.
+color	#525252	A dark, neutral gray color. Exact RGB values are Red:82, Green:82, Blue:82. Hex code is #525252.	A dark, neutral gray color. Exact RGB values are Red:82, Green:82, Blue:82. Hex code is #525252.
+color	#5A5A5A	A medium, neutral gray color. Exact RGB values are Red:90, Green:90, Blue:90. Hex code is #5A5A5A.	A medium, neutral gray color. Exact RGB values are Red:90, Green:90, Blue:90. Hex code is #5A5A5A.
+color	#636363	A medium, neutral gray color. Exact RGB values are Red:99, Green:99, Blue:99. Hex code is #636363.	A medium, neutral gray color. Exact RGB values are Red:99, Green:99, Blue:99. Hex code is #636363.
+color	#6B6B6B	A medium, neutral gray color. Exact RGB values are Red:107, Green:107, Blue:107. Hex code is #6B6B6B.	A medium, neutral gray color. Exact RGB values are Red:107, Green:107, Blue:107. Hex code is #6B6B6B.
+color	#737373	A medium, neutral gray color. Exact RGB values are Red:115, Green:115, Blue:115. Hex code is #737373.	A medium, neutral gray color. Exact RGB values are Red:115, Green:115, Blue:115. Hex code is #737373.
+color	#7B7B7B	A medium, neutral gray color. Exact RGB values are Red:123, Green:123, Blue:123. Hex code is #7B7B7B.	A medium, neutral gray color. Exact RGB values are Red:123, Green:123, Blue:123. Hex code is #7B7B7B.
+color	#848484	A medium, neutral gray color. Exact RGB values are Red:132, Green:132, Blue:132. Hex code is #848484.	A medium, neutral gray color. Exact RGB values are Red:132, Green:132, Blue:132. Hex code is #848484.
+color	#8C8C8C	A medium, neutral gray color. Exact RGB values are Red:140, Green:140, Blue:140. Hex code is #8C8C8C.	A medium, neutral gray color. Exact RGB values are Red:140, Green:140, Blue:140. Hex code is #8C8C8C.
+color	#949494	A medium, neutral gray color. Exact RGB values are Red:148, Green:148, Blue:148. Hex code is #949494.	A medium, neutral gray color. Exact RGB values are Red:148, Green:148, Blue:148. Hex code is #949494.
+color	#9C9C9C	A medium, neutral gray color. Exact RGB values are Red:156, Green:156, Blue:156. Hex code is #9C9C9C.	A medium, neutral gray color. Exact RGB values are Red:156, Green:156, Blue:156. Hex code is #9C9C9C.
+color	#A5A5A5	A medium, neutral gray color. Exact RGB values are Red:165, Green:165, Blue:165. Hex code is #A5A5A5.	A medium, neutral gray color. Exact RGB values are Red:165, Green:165, Blue:165. Hex code is #A5A5A5.
+color	#ADADAD	A light, neutral gray color. Exact RGB values are Red:173, Green:173, Blue:173. Hex code is #ADADAD.	A light, neutral gray color. Exact RGB values are Red:173, Green:173, Blue:173. Hex code is #ADADAD.
+color	#B5B5B5	A light, neutral gray color. Exact RGB values are Red:181, Green:181, Blue:181. Hex code is #B5B5B5.	A light, neutral gray color. Exact RGB values are Red:181, Green:181, Blue:181. Hex code is #B5B5B5.
+color	#BDBDBD	A light, neutral gray color. Exact RGB values are Red:189, Green:189, Blue:189. Hex code is #BDBDBD.	A light, neutral gray color. Exact RGB values are Red:189, Green:189, Blue:189. Hex code is #BDBDBD.
+color	#C5C5C5	A light, neutral gray color. Exact RGB values are Red:197, Green:197, Blue:197. Hex code is #C5C5C5.	A light, neutral gray color. Exact RGB values are Red:197, Green:197, Blue:197. Hex code is #C5C5C5.
+color	#CECECE	A light, neutral gray color. Exact RGB values are Red:206, Green:206, Blue:206. Hex code is #CECECE.	A light, neutral gray color. Exact RGB values are Red:206, Green:206, Blue:206. Hex code is #CECECE.
+color	#D6D6D6	A light, neutral gray color. Exact RGB values are Red:214, Green:214, Blue:214. Hex code is #D6D6D6.	A light, neutral gray color. Exact RGB values are Red:214, Green:214, Blue:214. Hex code is #D6D6D6.
+color	#DEDEDE	A very light, neutral gray color. Exact RGB values are Red:222, Green:222, Blue:222. Hex code is #DEDEDE.	A very light, neutral gray color. Exact RGB values are Red:222, Green:222, Blue:222. Hex code is #DEDEDE.
+color	#E6E6E6	A very light, neutral gray color. Exact RGB values are Red:230, Green:230, Blue:230. Hex code is #E6E6E6.	A very light, neutral gray color. Exact RGB values are Red:230, Green:230, Blue:230. Hex code is #E6E6E6.
+color	#EFEFEF	A very light, neutral gray color. Exact RGB values are Red:239, Green:239, Blue:239. Hex code is #EFEFEF.	A very light, neutral gray color. Exact RGB values are Red:239, Green:239, Blue:239. Hex code is #EFEFEF.
+color	#F7F7F7	A very light, neutral gray color. Exact RGB values are Red:247, Green:247, Blue:247. Hex code is #F7F7F7.	A very light, neutral gray color. Exact RGB values are Red:247, Green:247, Blue:247. Hex code is #F7F7F7.
+color	#FFFFFF	A very light, neutral gray color. Exact RGB values are Red:255, Green:255, Blue:255. Hex code is #FFFFFF.	A very light, neutral gray color. Exact RGB values are Red:255, Green:255, Blue:255. Hex code is #FFFFFF.
+color	#8C5B5B	A medium, moderately saturated red color. Exact RGB values are Red:140, Green:91, Blue:91. Hex code is #8C5B5B.	A medium, moderately saturated red color. Exact RGB values are Red:140, Green:91, Blue:91. Hex code is #8C5B5B.
+color	#D98D8D	A very light, moderately saturated red color. Exact RGB values are Red:217, Green:141, Blue:141. Hex code is #D98D8D.	A very light, moderately saturated red color. Exact RGB values are Red:217, Green:141, Blue:141. Hex code is #D98D8D.
+color	#8C3F3F	A medium, moderately saturated red color. Exact RGB values are Red:140, Green:63, Blue:63. Hex code is #8C3F3F.	A medium, moderately saturated red color. Exact RGB values are Red:140, Green:63, Blue:63. Hex code is #8C3F3F.
+color	#D96262	A very light, moderately saturated red color. Exact RGB values are Red:217, Green:98, Blue:98. Hex code is #D96262.	A very light, moderately saturated red color. Exact RGB values are Red:217, Green:98, Blue:98. Hex code is #D96262.
+color	#8C2323	A medium, highly saturated red color. Exact RGB values are Red:140, Green:35, Blue:35. Hex code is #8C2323.	A medium, highly saturated red color. Exact RGB values are Red:140, Green:35, Blue:35. Hex code is #8C2323.
+color	#D93636	A very light, highly saturated red color. Exact RGB values are Red:217, Green:54, Blue:54. Hex code is #D93636.	A very light, highly saturated red color. Exact RGB values are Red:217, Green:54, Blue:54. Hex code is #D93636.
+color	#8C0707	A medium, highly saturated red color. Exact RGB values are Red:140, Green:7, Blue:7. Hex code is #8C0707.	A medium, highly saturated red color. Exact RGB values are Red:140, Green:7, Blue:7. Hex code is #8C0707.
+color	#D90B0B	A very light, highly saturated red color. Exact RGB values are Red:217, Green:11, Blue:11. Hex code is #D90B0B.	A very light, highly saturated red color. Exact RGB values are Red:217, Green:11, Blue:11. Hex code is #D90B0B.
+color	#8C745B	A medium, moderately saturated orange color. Exact RGB values are Red:140, Green:116, Blue:91. Hex code is #8C745B.	A medium, moderately saturated orange color. Exact RGB values are Red:140, Green:116, Blue:91. Hex code is #8C745B.
+color	#D9B38D	A very light, moderately saturated orange color. Exact RGB values are Red:217, Green:179, Blue:141. Hex code is #D9B38D.	A very light, moderately saturated orange color. Exact RGB values are Red:217, Green:179, Blue:141. Hex code is #D9B38D.
+color	#8C663F	A medium, moderately saturated orange color. Exact RGB values are Red:140, Green:102, Blue:63. Hex code is #8C663F.	A medium, moderately saturated orange color. Exact RGB values are Red:140, Green:102, Blue:63. Hex code is #8C663F.
+color	#D99D62	A very light, moderately saturated orange color. Exact RGB values are Red:217, Green:157, Blue:98. Hex code is #D99D62.	A very light, moderately saturated orange color. Exact RGB values are Red:217, Green:157, Blue:98. Hex code is #D99D62.
+color	#8C5823	A medium, highly saturated orange color. Exact RGB values are Red:140, Green:88, Blue:35. Hex code is #8C5823.	A medium, highly saturated orange color. Exact RGB values are Red:140, Green:88, Blue:35. Hex code is #8C5823.
+color	#D98736	A very light, highly saturated orange color. Exact RGB values are Red:217, Green:135, Blue:54. Hex code is #D98736.	A very light, highly saturated orange color. Exact RGB values are Red:217, Green:135, Blue:54. Hex code is #D98736.
+color	#8C4A07	A medium, highly saturated orange color. Exact RGB values are Red:140, Green:74, Blue:7. Hex code is #8C4A07.	A medium, highly saturated orange color. Exact RGB values are Red:140, Green:74, Blue:7. Hex code is #8C4A07.
+color	#D9720B	A very light, highly saturated orange color. Exact RGB values are Red:217, Green:114, Blue:11. Hex code is #D9720B.	A very light, highly saturated orange color. Exact RGB values are Red:217, Green:114, Blue:11. Hex code is #D9720B.
+color	#8C8C5B	A medium, moderately saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:91. Hex code is #8C8C5B.	A medium, moderately saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:91. Hex code is #8C8C5B.
+color	#D9D98D	A very light, moderately saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:141. Hex code is #D9D98D.	A very light, moderately saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:141. Hex code is #D9D98D.
+color	#8C8C3F	A medium, moderately saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:63. Hex code is #8C8C3F.	A medium, moderately saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:63. Hex code is #8C8C3F.
+color	#D9D962	A very light, moderately saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:98. Hex code is #D9D962.	A very light, moderately saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:98. Hex code is #D9D962.
+color	#8C8C23	A medium, highly saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:35. Hex code is #8C8C23.	A medium, highly saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:35. Hex code is #8C8C23.
+color	#D9D936	A very light, highly saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:54. Hex code is #D9D936.	A very light, highly saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:54. Hex code is #D9D936.
+color	#8C8C07	A medium, highly saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:7. Hex code is #8C8C07.	A medium, highly saturated yellow color. Exact RGB values are Red:140, Green:140, Blue:7. Hex code is #8C8C07.
+color	#D9D90B	A very light, highly saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:11. Hex code is #D9D90B.	A very light, highly saturated yellow color. Exact RGB values are Red:217, Green:217, Blue:11. Hex code is #D9D90B.
+color	#748C5B	A medium, moderately saturated yellow-green color. Exact RGB values are Red:116, Green:140, Blue:91. Hex code is #748C5B.	A medium, moderately saturated yellow-green color. Exact RGB values are Red:116, Green:140, Blue:91. Hex code is #748C5B.
+color	#B3D98D	A very light, moderately saturated yellow-green color. Exact RGB values are Red:179, Green:217, Blue:141. Hex code is #B3D98D.	A very light, moderately saturated yellow-green color. Exact RGB values are Red:179, Green:217, Blue:141. Hex code is #B3D98D.
+color	#668C3F	A medium, moderately saturated yellow-green color. Exact RGB values are Red:102, Green:140, Blue:63. Hex code is #668C3F.	A medium, moderately saturated yellow-green color. Exact RGB values are Red:102, Green:140, Blue:63. Hex code is #668C3F.
+color	#9DD962	A very light, moderately saturated yellow-green color. Exact RGB values are Red:157, Green:217, Blue:98. Hex code is #9DD962.	A very light, moderately saturated yellow-green color. Exact RGB values are Red:157, Green:217, Blue:98. Hex code is #9DD962.
+color	#588C23	A medium, highly saturated yellow-green color. Exact RGB values are Red:88, Green:140, Blue:35. Hex code is #588C23.	A medium, highly saturated yellow-green color. Exact RGB values are Red:88, Green:140, Blue:35. Hex code is #588C23.
+color	#87D936	A very light, highly saturated yellow-green color. Exact RGB values are Red:135, Green:217, Blue:54. Hex code is #87D936.	A very light, highly saturated yellow-green color. Exact RGB values are Red:135, Green:217, Blue:54. Hex code is #87D936.
+color	#4A8C07	A medium, highly saturated yellow-green color. Exact RGB values are Red:74, Green:140, Blue:7. Hex code is #4A8C07.	A medium, highly saturated yellow-green color. Exact RGB values are Red:74, Green:140, Blue:7. Hex code is #4A8C07.
+color	#72D90B	A very light, highly saturated yellow-green color. Exact RGB values are Red:114, Green:217, Blue:11. Hex code is #72D90B.	A very light, highly saturated yellow-green color. Exact RGB values are Red:114, Green:217, Blue:11. Hex code is #72D90B.
+color	#5B8C5B	A medium, moderately saturated green color. Exact RGB values are Red:91, Green:140, Blue:91. Hex code is #5B8C5B.	A medium, moderately saturated green color. Exact RGB values are Red:91, Green:140, Blue:91. Hex code is #5B8C5B.
+color	#8DD98D	A very light, moderately saturated green color. Exact RGB values are Red:141, Green:217, Blue:141. Hex code is #8DD98D.	A very light, moderately saturated green color. Exact RGB values are Red:141, Green:217, Blue:141. Hex code is #8DD98D.
+color	#3F8C3F	A medium, moderately saturated green color. Exact RGB values are Red:63, Green:140, Blue:63. Hex code is #3F8C3F.	A medium, moderately saturated green color. Exact RGB values are Red:63, Green:140, Blue:63. Hex code is #3F8C3F.
+color	#62D962	A very light, moderately saturated green color. Exact RGB values are Red:98, Green:217, Blue:98. Hex code is #62D962.	A very light, moderately saturated green color. Exact RGB values are Red:98, Green:217, Blue:98. Hex code is #62D962.
+color	#238C23	A medium, highly saturated green color. Exact RGB values are Red:35, Green:140, Blue:35. Hex code is #238C23.	A medium, highly saturated green color. Exact RGB values are Red:35, Green:140, Blue:35. Hex code is #238C23.
+color	#36D936	A very light, highly saturated green color. Exact RGB values are Red:54, Green:217, Blue:54. Hex code is #36D936.	A very light, highly saturated green color. Exact RGB values are Red:54, Green:217, Blue:54. Hex code is #36D936.
+color	#078C07	A medium, highly saturated green color. Exact RGB values are Red:7, Green:140, Blue:7. Hex code is #078C07.	A medium, highly saturated green color. Exact RGB values are Red:7, Green:140, Blue:7. Hex code is #078C07.
+color	#0BD90B	A very light, highly saturated green color. Exact RGB values are Red:11, Green:217, Blue:11. Hex code is #0BD90B.	A very light, highly saturated green color. Exact RGB values are Red:11, Green:217, Blue:11. Hex code is #0BD90B.
+color	#5B8C74	A medium, moderately saturated spring green color. Exact RGB values are Red:91, Green:140, Blue:116. Hex code is #5B8C74.	A medium, moderately saturated spring green color. Exact RGB values are Red:91, Green:140, Blue:116. Hex code is #5B8C74.
+color	#8DD9B3	A very light, moderately saturated spring green color. Exact RGB values are Red:141, Green:217, Blue:179. Hex code is #8DD9B3.	A very light, moderately saturated spring green color. Exact RGB values are Red:141, Green:217, Blue:179. Hex code is #8DD9B3.
+color	#3F8C66	A medium, moderately saturated spring green color. Exact RGB values are Red:63, Green:140, Blue:102. Hex code is #3F8C66.	A medium, moderately saturated spring green color. Exact RGB values are Red:63, Green:140, Blue:102. Hex code is #3F8C66.
+color	#62D99D	A very light, moderately saturated spring green color. Exact RGB values are Red:98, Green:217, Blue:157. Hex code is #62D99D.	A very light, moderately saturated spring green color. Exact RGB values are Red:98, Green:217, Blue:157. Hex code is #62D99D.
+color	#238C58	A medium, highly saturated spring green color. Exact RGB values are Red:35, Green:140, Blue:88. Hex code is #238C58.	A medium, highly saturated spring green color. Exact RGB values are Red:35, Green:140, Blue:88. Hex code is #238C58.
+color	#36D987	A very light, highly saturated spring green color. Exact RGB values are Red:54, Green:217, Blue:135. Hex code is #36D987.	A very light, highly saturated spring green color. Exact RGB values are Red:54, Green:217, Blue:135. Hex code is #36D987.
+color	#078C4A	A medium, highly saturated spring green color. Exact RGB values are Red:7, Green:140, Blue:74. Hex code is #078C4A.	A medium, highly saturated spring green color. Exact RGB values are Red:7, Green:140, Blue:74. Hex code is #078C4A.
+color	#0BD972	A very light, highly saturated spring green color. Exact RGB values are Red:11, Green:217, Blue:114. Hex code is #0BD972.	A very light, highly saturated spring green color. Exact RGB values are Red:11, Green:217, Blue:114. Hex code is #0BD972.
+color	#5B8C8C	A medium, moderately saturated cyan color. Exact RGB values are Red:91, Green:140, Blue:140. Hex code is #5B8C8C.	A medium, moderately saturated cyan color. Exact RGB values are Red:91, Green:140, Blue:140. Hex code is #5B8C8C.
+color	#8DD9D9	A very light, moderately saturated cyan color. Exact RGB values are Red:141, Green:217, Blue:217. Hex code is #8DD9D9.	A very light, moderately saturated cyan color. Exact RGB values are Red:141, Green:217, Blue:217. Hex code is #8DD9D9.
+color	#3F8C8C	A medium, moderately saturated cyan color. Exact RGB values are Red:63, Green:140, Blue:140. Hex code is #3F8C8C.	A medium, moderately saturated cyan color. Exact RGB values are Red:63, Green:140, Blue:140. Hex code is #3F8C8C.
+color	#62D9D9	A very light, moderately saturated cyan color. Exact RGB values are Red:98, Green:217, Blue:217. Hex code is #62D9D9.	A very light, moderately saturated cyan color. Exact RGB values are Red:98, Green:217, Blue:217. Hex code is #62D9D9.
+color	#238C8C	A medium, highly saturated cyan color. Exact RGB values are Red:35, Green:140, Blue:140. Hex code is #238C8C.	A medium, highly saturated cyan color. Exact RGB values are Red:35, Green:140, Blue:140. Hex code is #238C8C.
+color	#36D9D9	A very light, highly saturated cyan color. Exact RGB values are Red:54, Green:217, Blue:217. Hex code is #36D9D9.	A very light, highly saturated cyan color. Exact RGB values are Red:54, Green:217, Blue:217. Hex code is #36D9D9.
+color	#078C8C	A medium, highly saturated cyan color. Exact RGB values are Red:7, Green:140, Blue:140. Hex code is #078C8C.	A medium, highly saturated cyan color. Exact RGB values are Red:7, Green:140, Blue:140. Hex code is #078C8C.
+color	#0BD9D9	A very light, highly saturated cyan color. Exact RGB values are Red:11, Green:217, Blue:217. Hex code is #0BD9D9.	A very light, highly saturated cyan color. Exact RGB values are Red:11, Green:217, Blue:217. Hex code is #0BD9D9.
+color	#5B748C	A medium, moderately saturated azure color. Exact RGB values are Red:91, Green:116, Blue:140. Hex code is #5B748C.	A medium, moderately saturated azure color. Exact RGB values are Red:91, Green:116, Blue:140. Hex code is #5B748C.
+color	#8DB3D9	A very light, moderately saturated azure color. Exact RGB values are Red:141, Green:179, Blue:217. Hex code is #8DB3D9.	A very light, moderately saturated azure color. Exact RGB values are Red:141, Green:179, Blue:217. Hex code is #8DB3D9.
+color	#3F668C	A medium, moderately saturated azure color. Exact RGB values are Red:63, Green:102, Blue:140. Hex code is #3F668C.	A medium, moderately saturated azure color. Exact RGB values are Red:63, Green:102, Blue:140. Hex code is #3F668C.
+color	#629DD9	A very light, moderately saturated azure color. Exact RGB values are Red:98, Green:157, Blue:217. Hex code is #629DD9.	A very light, moderately saturated azure color. Exact RGB values are Red:98, Green:157, Blue:217. Hex code is #629DD9.
+color	#23588C	A medium, highly saturated azure color. Exact RGB values are Red:35, Green:88, Blue:140. Hex code is #23588C.	A medium, highly saturated azure color. Exact RGB values are Red:35, Green:88, Blue:140. Hex code is #23588C.
+color	#3687D9	A very light, highly saturated azure color. Exact RGB values are Red:54, Green:135, Blue:217. Hex code is #3687D9.	A very light, highly saturated azure color. Exact RGB values are Red:54, Green:135, Blue:217. Hex code is #3687D9.
+color	#074A8C	A medium, highly saturated azure color. Exact RGB values are Red:7, Green:74, Blue:140. Hex code is #074A8C.	A medium, highly saturated azure color. Exact RGB values are Red:7, Green:74, Blue:140. Hex code is #074A8C.
+color	#0B72D9	A very light, highly saturated azure color. Exact RGB values are Red:11, Green:114, Blue:217. Hex code is #0B72D9.	A very light, highly saturated azure color. Exact RGB values are Red:11, Green:114, Blue:217. Hex code is #0B72D9.
+color	#5B5B8C	A medium, moderately saturated blue color. Exact RGB values are Red:91, Green:91, Blue:140. Hex code is #5B5B8C.	A medium, moderately saturated blue color. Exact RGB values are Red:91, Green:91, Blue:140. Hex code is #5B5B8C.
+color	#8D8DD9	A very light, moderately saturated blue color. Exact RGB values are Red:141, Green:141, Blue:217. Hex code is #8D8DD9.	A very light, moderately saturated blue color. Exact RGB values are Red:141, Green:141, Blue:217. Hex code is #8D8DD9.
+color	#3F3F8C	A medium, moderately saturated blue color. Exact RGB values are Red:63, Green:63, Blue:140. Hex code is #3F3F8C.	A medium, moderately saturated blue color. Exact RGB values are Red:63, Green:63, Blue:140. Hex code is #3F3F8C.
+color	#6262D9	A very light, moderately saturated blue color. Exact RGB values are Red:98, Green:98, Blue:217. Hex code is #6262D9.	A very light, moderately saturated blue color. Exact RGB values are Red:98, Green:98, Blue:217. Hex code is #6262D9.
+color	#23238C	A medium, highly saturated blue color. Exact RGB values are Red:35, Green:35, Blue:140. Hex code is #23238C.	A medium, highly saturated blue color. Exact RGB values are Red:35, Green:35, Blue:140. Hex code is #23238C.
+color	#3636D9	A very light, highly saturated blue color. Exact RGB values are Red:54, Green:54, Blue:217. Hex code is #3636D9.	A very light, highly saturated blue color. Exact RGB values are Red:54, Green:54, Blue:217. Hex code is #3636D9.
+color	#07078C	A medium, highly saturated blue color. Exact RGB values are Red:7, Green:7, Blue:140. Hex code is #07078C.	A medium, highly saturated blue color. Exact RGB values are Red:7, Green:7, Blue:140. Hex code is #07078C.
+color	#0B0BD9	A very light, highly saturated blue color. Exact RGB values are Red:11, Green:11, Blue:217. Hex code is #0B0BD9.	A very light, highly saturated blue color. Exact RGB values are Red:11, Green:11, Blue:217. Hex code is #0B0BD9.
+color	#745B8C	A medium, moderately saturated violet color. Exact RGB values are Red:116, Green:91, Blue:140. Hex code is #745B8C.	A medium, moderately saturated violet color. Exact RGB values are Red:116, Green:91, Blue:140. Hex code is #745B8C.
+color	#B38DD9	A very light, moderately saturated violet color. Exact RGB values are Red:179, Green:141, Blue:217. Hex code is #B38DD9.	A very light, moderately saturated violet color. Exact RGB values are Red:179, Green:141, Blue:217. Hex code is #B38DD9.
+color	#663F8C	A medium, moderately saturated violet color. Exact RGB values are Red:102, Green:63, Blue:140. Hex code is #663F8C.	A medium, moderately saturated violet color. Exact RGB values are Red:102, Green:63, Blue:140. Hex code is #663F8C.
+color	#9D62D9	A very light, moderately saturated violet color. Exact RGB values are Red:157, Green:98, Blue:217. Hex code is #9D62D9.	A very light, moderately saturated violet color. Exact RGB values are Red:157, Green:98, Blue:217. Hex code is #9D62D9.
+color	#58238C	A medium, highly saturated violet color. Exact RGB values are Red:88, Green:35, Blue:140. Hex code is #58238C.	A medium, highly saturated violet color. Exact RGB values are Red:88, Green:35, Blue:140. Hex code is #58238C.
+color	#8736D9	A very light, highly saturated violet color. Exact RGB values are Red:135, Green:54, Blue:217. Hex code is #8736D9.	A very light, highly saturated violet color. Exact RGB values are Red:135, Green:54, Blue:217. Hex code is #8736D9.
+color	#4A078C	A medium, highly saturated violet color. Exact RGB values are Red:74, Green:7, Blue:140. Hex code is #4A078C.	A medium, highly saturated violet color. Exact RGB values are Red:74, Green:7, Blue:140. Hex code is #4A078C.
+color	#720BD9	A very light, highly saturated violet color. Exact RGB values are Red:114, Green:11, Blue:217. Hex code is #720BD9.	A very light, highly saturated violet color. Exact RGB values are Red:114, Green:11, Blue:217. Hex code is #720BD9.
+color	#8C5B8C	A medium, moderately saturated magenta color. Exact RGB values are Red:140, Green:91, Blue:140. Hex code is #8C5B8C.	A medium, moderately saturated magenta color. Exact RGB values are Red:140, Green:91, Blue:140. Hex code is #8C5B8C.
+color	#D98DD9	A very light, moderately saturated magenta color. Exact RGB values are Red:217, Green:141, Blue:217. Hex code is #D98DD9.	A very light, moderately saturated magenta color. Exact RGB values are Red:217, Green:141, Blue:217. Hex code is #D98DD9.
+color	#8C3F8C	A medium, moderately saturated magenta color. Exact RGB values are Red:140, Green:63, Blue:140. Hex code is #8C3F8C.	A medium, moderately saturated magenta color. Exact RGB values are Red:140, Green:63, Blue:140. Hex code is #8C3F8C.
+color	#D962D9	A very light, moderately saturated magenta color. Exact RGB values are Red:217, Green:98, Blue:217. Hex code is #D962D9.	A very light, moderately saturated magenta color. Exact RGB values are Red:217, Green:98, Blue:217. Hex code is #D962D9.
+color	#8C238C	A medium, highly saturated magenta color. Exact RGB values are Red:140, Green:35, Blue:140. Hex code is #8C238C.	A medium, highly saturated magenta color. Exact RGB values are Red:140, Green:35, Blue:140. Hex code is #8C238C.
+color	#D936D9	A very light, highly saturated magenta color. Exact RGB values are Red:217, Green:54, Blue:217. Hex code is #D936D9.	A very light, highly saturated magenta color. Exact RGB values are Red:217, Green:54, Blue:217. Hex code is #D936D9.
+color	#8C078C	A medium, highly saturated magenta color. Exact RGB values are Red:140, Green:7, Blue:140. Hex code is #8C078C.	A medium, highly saturated magenta color. Exact RGB values are Red:140, Green:7, Blue:140. Hex code is #8C078C.
+color	#D90BD9	A very light, highly saturated magenta color. Exact RGB values are Red:217, Green:11, Blue:217. Hex code is #D90BD9.	A very light, highly saturated magenta color. Exact RGB values are Red:217, Green:11, Blue:217. Hex code is #D90BD9.
+color	#8C5B74	A medium, moderately saturated rose color. Exact RGB values are Red:140, Green:91, Blue:116. Hex code is #8C5B74.	A medium, moderately saturated rose color. Exact RGB values are Red:140, Green:91, Blue:116. Hex code is #8C5B74.
+color	#D98DB3	A very light, moderately saturated rose color. Exact RGB values are Red:217, Green:141, Blue:179. Hex code is #D98DB3.	A very light, moderately saturated rose color. Exact RGB values are Red:217, Green:141, Blue:179. Hex code is #D98DB3.
+color	#8C3F66	A medium, moderately saturated rose color. Exact RGB values are Red:140, Green:63, Blue:102. Hex code is #8C3F66.	A medium, moderately saturated rose color. Exact RGB values are Red:140, Green:63, Blue:102. Hex code is #8C3F66.
+color	#D9629D	A very light, moderately saturated rose color. Exact RGB values are Red:217, Green:98, Blue:157. Hex code is #D9629D.	A very light, moderately saturated rose color. Exact RGB values are Red:217, Green:98, Blue:157. Hex code is #D9629D.
+color	#8C2358	A medium, highly saturated rose color. Exact RGB values are Red:140, Green:35, Blue:88. Hex code is #8C2358.	A medium, highly saturated rose color. Exact RGB values are Red:140, Green:35, Blue:88. Hex code is #8C2358.
+color	#D93687	A very light, highly saturated rose color. Exact RGB values are Red:217, Green:54, Blue:135. Hex code is #D93687.	A very light, highly saturated rose color. Exact RGB values are Red:217, Green:54, Blue:135. Hex code is #D93687.
+color	#8C074A	A medium, highly saturated rose color. Exact RGB values are Red:140, Green:7, Blue:74. Hex code is #8C074A.	A medium, highly saturated rose color. Exact RGB values are Red:140, Green:7, Blue:74. Hex code is #8C074A.
+color	#D90B72	A very light, highly saturated rose color. Exact RGB values are Red:217, Green:11, Blue:114. Hex code is #D90B72.	A very light, highly saturated rose color. Exact RGB values are Red:217, Green:11, Blue:114. Hex code is #D90B72.
+color	#0B1B3A	A dark, highly saturated azure color. Exact RGB values are Red:11, Green:27, Blue:58. Hex code is #0B1B3A.	A dark, highly saturated azure color. Exact RGB values are Red:11, Green:27, Blue:58. Hex code is #0B1B3A.
+color	#09D4BB	A light, highly saturated cyan color. Exact RGB values are Red:9, Green:212, Blue:187. Hex code is #09D4BB.	A light, highly saturated cyan color. Exact RGB values are Red:9, Green:212, Blue:187. Hex code is #09D4BB.
+color	#F28FBC	A very light, moderately saturated rose color. Exact RGB values are Red:242, Green:143, Blue:188. Hex code is #F28FBC.	A very light, moderately saturated rose color. Exact RGB values are Red:242, Green:143, Blue:188. Hex code is #F28FBC.
+color	#5F6773	A medium, muted azure color. Exact RGB values are Red:95, Green:103, Blue:115. Hex code is #5F6773.	A medium, muted azure color. Exact RGB values are Red:95, Green:103, Blue:115. Hex code is #5F6773.
+color	#F6B430	A very light, highly saturated orange color. Exact RGB values are Red:246, Green:180, Blue:48. Hex code is #F6B430.	A very light, highly saturated orange color. Exact RGB values are Red:246, Green:180, Blue:48. Hex code is #F6B430.
+color	#3AB154	A light, highly saturated green color. Exact RGB values are Red:58, Green:177, Blue:84. Hex code is #3AB154.	A light, highly saturated green color. Exact RGB values are Red:58, Green:177, Blue:84. Hex code is #3AB154.
+color	#62BBCF	A light, moderately saturated cyan color. Exact RGB values are Red:98, Green:187, Blue:207. Hex code is #62BBCF.	A light, moderately saturated cyan color. Exact RGB values are Red:98, Green:187, Blue:207. Hex code is #62BBCF.
+color	#E12427	A very light, highly saturated red color. Exact RGB values are Red:225, Green:36, Blue:39. Hex code is #E12427.	A very light, highly saturated red color. Exact RGB values are Red:225, Green:36, Blue:39. Hex code is #E12427.
+color	#F5F6F7	A very light, neutral gray color. Exact RGB values are Red:245, Green:246, Blue:247. Hex code is #F5F6F7.	A very light, neutral gray color. Exact RGB values are Red:245, Green:246, Blue:247. Hex code is #F5F6F7.
+color	#AE19B6	A light, highly saturated magenta color. Exact RGB values are Red:174, Green:25, Blue:182. Hex code is #AE19B6.	A light, highly saturated magenta color. Exact RGB values are Red:174, Green:25, Blue:182. Hex code is #AE19B6.
+color	#87A1BE	A light, muted azure color. Exact RGB values are Red:135, Green:161, Blue:190. Hex code is #87A1BE.	A light, muted azure color. Exact RGB values are Red:135, Green:161, Blue:190. Hex code is #87A1BE.
+color	#63C475	A light, moderately saturated green color. Exact RGB values are Red:99, Green:196, Blue:117. Hex code is #63C475.	A light, moderately saturated green color. Exact RGB values are Red:99, Green:196, Blue:117. Hex code is #63C475.
+color	#0AADA0	A light, highly saturated cyan color. Exact RGB values are Red:10, Green:173, Blue:160. Hex code is #0AADA0.	A light, highly saturated cyan color. Exact RGB values are Red:10, Green:173, Blue:160. Hex code is #0AADA0.
+color	#79D7A5	A light, moderately saturated spring green color. Exact RGB values are Red:121, Green:215, Blue:165. Hex code is #79D7A5.	A light, moderately saturated spring green color. Exact RGB values are Red:121, Green:215, Blue:165. Hex code is #79D7A5.
+color	#C7A20C	A light, highly saturated yellow color. Exact RGB values are Red:199, Green:162, Blue:12. Hex code is #C7A20C.	A light, highly saturated yellow color. Exact RGB values are Red:199, Green:162, Blue:12. Hex code is #C7A20C.
+color	#BFC2C6	A light, neutral gray color. Exact RGB values are Red:191, Green:194, Blue:198. Hex code is #BFC2C6.	A light, neutral gray color. Exact RGB values are Red:191, Green:194, Blue:198. Hex code is #BFC2C6.
+color	#0CA445	A medium, highly saturated spring green color. Exact RGB values are Red:12, Green:164, Blue:69. Hex code is #0CA445.	A medium, highly saturated spring green color. Exact RGB values are Red:12, Green:164, Blue:69. Hex code is #0CA445.
+color	#F0632A	A very light, highly saturated orange color. Exact RGB values are Red:240, Green:99, Blue:42. Hex code is #F0632A.	A very light, highly saturated orange color. Exact RGB values are Red:240, Green:99, Blue:42. Hex code is #F0632A.
+color	#F7E90B	A very light, highly saturated yellow color. Exact RGB values are Red:247, Green:233, Blue:11. Hex code is #F7E90B.	A very light, highly saturated yellow color. Exact RGB values are Red:247, Green:233, Blue:11. Hex code is #F7E90B.
+color	#F37A7A	A very light, moderately saturated red color. Exact RGB values are Red:243, Green:122, Blue:122. Hex code is #F37A7A.	A very light, moderately saturated red color. Exact RGB values are Red:243, Green:122, Blue:122. Hex code is #F37A7A.
+color	#101BB9	A light, highly saturated blue color. Exact RGB values are Red:16, Green:27, Blue:185. Hex code is #101BB9.	A light, highly saturated blue color. Exact RGB values are Red:16, Green:27, Blue:185. Hex code is #101BB9.
+color	#D8BA96	A light, muted orange color. Exact RGB values are Red:216, Green:186, Blue:150. Hex code is #D8BA96.	A light, muted orange color. Exact RGB values are Red:216, Green:186, Blue:150. Hex code is #D8BA96.
+color	#FADA65	A very light, moderately saturated yellow color. Exact RGB values are Red:250, Green:218, Blue:101. Hex code is #FADA65.	A very light, moderately saturated yellow color. Exact RGB values are Red:250, Green:218, Blue:101. Hex code is #FADA65.
+color	#F1169B	A very light, highly saturated rose color. Exact RGB values are Red:241, Green:22, Blue:155. Hex code is #F1169B.	A very light, highly saturated rose color. Exact RGB values are Red:241, Green:22, Blue:155. Hex code is #F1169B.
+color	#BAE4F5	A very light, muted azure color. Exact RGB values are Red:186, Green:228, Blue:245. Hex code is #BAE4F5.	A very light, muted azure color. Exact RGB values are Red:186, Green:228, Blue:245. Hex code is #BAE4F5.
+color	#AC1922	A light, highly saturated red color. Exact RGB values are Red:172, Green:25, Blue:34. Hex code is #AC1922.	A light, highly saturated red color. Exact RGB values are Red:172, Green:25, Blue:34. Hex code is #AC1922.
+color	#12720A	A medium, highly saturated green color. Exact RGB values are Red:18, Green:114, Blue:10. Hex code is #12720A.	A medium, highly saturated green color. Exact RGB values are Red:18, Green:114, Blue:10. Hex code is #12720A.
+color	#F7A98E	A very light, moderately saturated orange color. Exact RGB values are Red:247, Green:169, Blue:142. Hex code is #F7A98E.	A very light, moderately saturated orange color. Exact RGB values are Red:247, Green:169, Blue:142. Hex code is #F7A98E.
+color	#696DF1	A very light, moderately saturated blue color. Exact RGB values are Red:105, Green:109, Blue:241. Hex code is #696DF1.	A very light, moderately saturated blue color. Exact RGB values are Red:105, Green:109, Blue:241. Hex code is #696DF1.
+color	#790EA4	A medium, highly saturated violet color. Exact RGB values are Red:121, Green:14, Blue:164. Hex code is #790EA4.	A medium, highly saturated violet color. Exact RGB values are Red:121, Green:14, Blue:164. Hex code is #790EA4.
+color	#F60A0B	A very light, highly saturated red color. Exact RGB values are Red:246, Green:10, Blue:11. Hex code is #F60A0B.	A very light, highly saturated red color. Exact RGB values are Red:246, Green:10, Blue:11. Hex code is #F60A0B.
+color	#7BB944	A light, moderately saturated yellow-green color. Exact RGB values are Red:123, Green:185, Blue:68. Hex code is #7BB944.	A light, moderately saturated yellow-green color. Exact RGB values are Red:123, Green:185, Blue:68. Hex code is #7BB944.
+color	#435466	A medium, muted azure color. Exact RGB values are Red:67, Green:84, Blue:102. Hex code is #435466.	A medium, muted azure color. Exact RGB values are Red:67, Green:84, Blue:102. Hex code is #435466.
+color	#08B4EE	A very light, highly saturated azure color. Exact RGB values are Red:8, Green:180, Blue:238. Hex code is #08B4EE.	A very light, highly saturated azure color. Exact RGB values are Red:8, Green:180, Blue:238. Hex code is #08B4EE.
+color	#109078	A medium, highly saturated cyan color. Exact RGB values are Red:16, Green:144, Blue:120. Hex code is #109078.	A medium, highly saturated cyan color. Exact RGB values are Red:16, Green:144, Blue:120. Hex code is #109078.
+color	#946346	A medium, moderately saturated orange color. Exact RGB values are Red:148, Green:99, Blue:70. Hex code is #946346.	A medium, moderately saturated orange color. Exact RGB values are Red:148, Green:99, Blue:70. Hex code is #946346.
+color	#B05811	A light, highly saturated orange color. Exact RGB values are Red:176, Green:88, Blue:17. Hex code is #B05811.	A light, highly saturated orange color. Exact RGB values are Red:176, Green:88, Blue:17. Hex code is #B05811.
+color	#598AC5	A light, moderately saturated azure color. Exact RGB values are Red:89, Green:138, Blue:197. Hex code is #598AC5.	A light, moderately saturated azure color. Exact RGB values are Red:89, Green:138, Blue:197. Hex code is #598AC5.
+color	#7B7A7A	A medium, neutral gray color. Exact RGB values are Red:123, Green:122, Blue:122. Hex code is #7B7A7A.	A medium, neutral gray color. Exact RGB values are Red:123, Green:122, Blue:122. Hex code is #7B7A7A.
+color	#0810F9	A very light, highly saturated blue color. Exact RGB values are Red:8, Green:16, Blue:249. Hex code is #0810F9.	A very light, highly saturated blue color. Exact RGB values are Red:8, Green:16, Blue:249. Hex code is #0810F9.
+color	#BB155C	A light, highly saturated rose color. Exact RGB values are Red:187, Green:21, Blue:92. Hex code is #BB155C.	A light, highly saturated rose color. Exact RGB values are Red:187, Green:21, Blue:92. Hex code is #BB155C.
+color	#7CACF3	A very light, moderately saturated azure color. Exact RGB values are Red:124, Green:172, Blue:243. Hex code is #7CACF3.	A very light, moderately saturated azure color. Exact RGB values are Red:124, Green:172, Blue:243. Hex code is #7CACF3.
+color	#0871C0	A light, highly saturated azure color. Exact RGB values are Red:8, Green:113, Blue:192. Hex code is #0871C0.	A light, highly saturated azure color. Exact RGB values are Red:8, Green:113, Blue:192. Hex code is #0871C0.
+color	#0798D0	A light, highly saturated azure color. Exact RGB values are Red:7, Green:152, Blue:208. Hex code is #0798D0.	A light, highly saturated azure color. Exact RGB values are Red:7, Green:152, Blue:208. Hex code is #0798D0.
+color	#0B7598	A medium, highly saturated cyan color. Exact RGB values are Red:11, Green:117, Blue:152. Hex code is #0B7598.	A medium, highly saturated cyan color. Exact RGB values are Red:11, Green:117, Blue:152. Hex code is #0B7598.
+color	#151619	A very dark, muted blue color. Exact RGB values are Red:21, Green:22, Blue:25. Hex code is #151619.	A very dark, muted blue color. Exact RGB values are Red:21, Green:22, Blue:25. Hex code is #151619.
+color	#084F79	A medium, highly saturated azure color. Exact RGB values are Red:8, Green:79, Blue:121. Hex code is #084F79.	A medium, highly saturated azure color. Exact RGB values are Red:8, Green:79, Blue:121. Hex code is #084F79.
+color	#6114E6	A very light, highly saturated violet color. Exact RGB values are Red:97, Green:20, Blue:230. Hex code is #6114E6.	A very light, highly saturated violet color. Exact RGB values are Red:97, Green:20, Blue:230. Hex code is #6114E6.
+color	#D05456	A light, moderately saturated red color. Exact RGB values are Red:208, Green:84, Blue:86. Hex code is #D05456.	A light, moderately saturated red color. Exact RGB values are Red:208, Green:84, Blue:86. Hex code is #D05456.
+color	#552588	A medium, highly saturated violet color. Exact RGB values are Red:85, Green:37, Blue:136. Hex code is #552588.	A medium, highly saturated violet color. Exact RGB values are Red:85, Green:37, Blue:136. Hex code is #552588.
+color	#2A3D7F	A medium, highly saturated blue color. Exact RGB values are Red:42, Green:61, Blue:127. Hex code is #2A3D7F.	A medium, highly saturated blue color. Exact RGB values are Red:42, Green:61, Blue:127. Hex code is #2A3D7F.
+color	#3951EF	A very light, highly saturated blue color. Exact RGB values are Red:57, Green:81, Blue:239. Hex code is #3951EF.	A very light, highly saturated blue color. Exact RGB values are Red:57, Green:81, Blue:239. Hex code is #3951EF.
+color	#3ED3B7	A light, highly saturated cyan color. Exact RGB values are Red:62, Green:211, Blue:183. Hex code is #3ED3B7.	A light, highly saturated cyan color. Exact RGB values are Red:62, Green:211, Blue:183. Hex code is #3ED3B7.
+color	#32A1D5	A light, highly saturated azure color. Exact RGB values are Red:50, Green:161, Blue:213. Hex code is #32A1D5.	A light, highly saturated azure color. Exact RGB values are Red:50, Green:161, Blue:213. Hex code is #32A1D5.
+color	#4F9AF4	A very light, highly saturated azure color. Exact RGB values are Red:79, Green:154, Blue:244. Hex code is #4F9AF4.	A very light, highly saturated azure color. Exact RGB values are Red:79, Green:154, Blue:244. Hex code is #4F9AF4.
+color	#8CCD10	A light, highly saturated yellow-green color. Exact RGB values are Red:140, Green:205, Blue:16. Hex code is #8CCD10.	A light, highly saturated yellow-green color. Exact RGB values are Red:140, Green:205, Blue:16. Hex code is #8CCD10.
+color	#4E8D3C	A medium, moderately saturated green color. Exact RGB values are Red:78, Green:141, Blue:60. Hex code is #4E8D3C.	A medium, moderately saturated green color. Exact RGB values are Red:78, Green:141, Blue:60. Hex code is #4E8D3C.
+color	#107041	A medium, highly saturated spring green color. Exact RGB values are Red:16, Green:112, Blue:65. Hex code is #107041.	A medium, highly saturated spring green color. Exact RGB values are Red:16, Green:112, Blue:65. Hex code is #107041.
+color	#222429	A dark, muted azure color. Exact RGB values are Red:34, Green:36, Blue:41. Hex code is #222429.	A dark, muted azure color. Exact RGB values are Red:34, Green:36, Blue:41. Hex code is #222429.
+color	#F8E9D8	A very light, muted orange color. Exact RGB values are Red:248, Green:233, Blue:216. Hex code is #F8E9D8.	A very light, muted orange color. Exact RGB values are Red:248, Green:233, Blue:216. Hex code is #F8E9D8.
+color	#4A2616	A dark, highly saturated orange color. Exact RGB values are Red:74, Green:38, Blue:22. Hex code is #4A2616.	A dark, highly saturated orange color. Exact RGB values are Red:74, Green:38, Blue:22. Hex code is #4A2616.
+color	#0950A5	A medium, highly saturated azure color. Exact RGB values are Red:9, Green:80, Blue:165. Hex code is #0950A5.	A medium, highly saturated azure color. Exact RGB values are Red:9, Green:80, Blue:165. Hex code is #0950A5.
+color	#A575DD	A very light, moderately saturated violet color. Exact RGB values are Red:165, Green:117, Blue:221. Hex code is #A575DD.	A very light, moderately saturated violet color. Exact RGB values are Red:165, Green:117, Blue:221. Hex code is #A575DD.
+color	#9C9A9C	A medium, neutral gray color. Exact RGB values are Red:156, Green:154, Blue:156. Hex code is #9C9A9C.	A medium, neutral gray color. Exact RGB values are Red:156, Green:154, Blue:156. Hex code is #9C9A9C.
+color	#F7BC56	A very light, highly saturated orange color. Exact RGB values are Red:247, Green:188, Blue:86. Hex code is #F7BC56.	A very light, highly saturated orange color. Exact RGB values are Red:247, Green:188, Blue:86. Hex code is #F7BC56.
+color	#F79F08	A very light, highly saturated orange color. Exact RGB values are Red:247, Green:159, Blue:8. Hex code is #F79F08.	A very light, highly saturated orange color. Exact RGB values are Red:247, Green:159, Blue:8. Hex code is #F79F08.
+color	#E85A9A	A very light, moderately saturated rose color. Exact RGB values are Red:232, Green:90, Blue:154. Hex code is #E85A9A.	A very light, moderately saturated rose color. Exact RGB values are Red:232, Green:90, Blue:154. Hex code is #E85A9A.
+color	#E8196F	A very light, highly saturated rose color. Exact RGB values are Red:232, Green:25, Blue:111. Hex code is #E8196F.	A very light, highly saturated rose color. Exact RGB values are Red:232, Green:25, Blue:111. Hex code is #E8196F.
+color	#0CE9F2	A very light, highly saturated cyan color. Exact RGB values are Red:12, Green:233, Blue:242. Hex code is #0CE9F2.	A very light, highly saturated cyan color. Exact RGB values are Red:12, Green:233, Blue:242. Hex code is #0CE9F2.
+color	#69DCF1	A very light, moderately saturated cyan color. Exact RGB values are Red:105, Green:220, Blue:241. Hex code is #69DCF1.	A very light, moderately saturated cyan color. Exact RGB values are Red:105, Green:220, Blue:241. Hex code is #69DCF1.
+color	#F54B61	A very light, highly saturated red color. Exact RGB values are Red:245, Green:75, Blue:97. Hex code is #F54B61.	A very light, highly saturated red color. Exact RGB values are Red:245, Green:75, Blue:97. Hex code is #F54B61.
+color	#F37606	A very light, highly saturated orange color. Exact RGB values are Red:243, Green:118, Blue:6. Hex code is #F37606.	A very light, highly saturated orange color. Exact RGB values are Red:243, Green:118, Blue:6. Hex code is #F37606.
+color	#882C3D	A medium, highly saturated red color. Exact RGB values are Red:136, Green:44, Blue:61. Hex code is #882C3D.	A medium, highly saturated red color. Exact RGB values are Red:136, Green:44, Blue:61. Hex code is #882C3D.
+color	#CA0A0F	A light, highly saturated red color. Exact RGB values are Red:202, Green:10, Blue:15. Hex code is #CA0A0F.	A light, highly saturated red color. Exact RGB values are Red:202, Green:10, Blue:15. Hex code is #CA0A0F.
+color	#334154	A dark, moderately saturated azure color. Exact RGB values are Red:51, Green:65, Blue:84. Hex code is #334154.	A dark, moderately saturated azure color. Exact RGB values are Red:51, Green:65, Blue:84. Hex code is #334154.
+color	#DF63ED	A very light, moderately saturated magenta color. Exact RGB values are Red:223, Green:99, Blue:237. Hex code is #DF63ED.	A very light, moderately saturated magenta color. Exact RGB values are Red:223, Green:99, Blue:237. Hex code is #DF63ED.
+color	#FADE8B	A very light, moderately saturated orange color. Exact RGB values are Red:250, Green:222, Blue:139. Hex code is #FADE8B.	A very light, moderately saturated orange color. Exact RGB values are Red:250, Green:222, Blue:139. Hex code is #FADE8B.
+color	#B6E99D	A very light, muted yellow-green color. Exact RGB values are Red:182, Green:233, Blue:157. Hex code is #B6E99D.	A very light, muted yellow-green color. Exact RGB values are Red:182, Green:233, Blue:157. Hex code is #B6E99D.
+color	#40C1F0	A very light, highly saturated azure color. Exact RGB values are Red:64, Green:193, Blue:240. Hex code is #40C1F0.	A very light, highly saturated azure color. Exact RGB values are Red:64, Green:193, Blue:240. Hex code is #40C1F0.
+color	#868A1E	A medium, highly saturated yellow color. Exact RGB values are Red:134, Green:138, Blue:30. Hex code is #868A1E.	A medium, highly saturated yellow color. Exact RGB values are Red:134, Green:138, Blue:30. Hex code is #868A1E.
+color	#94D3F7	A very light, moderately saturated azure color. Exact RGB values are Red:148, Green:211, Blue:247. Hex code is #94D3F7.	A very light, moderately saturated azure color. Exact RGB values are Red:148, Green:211, Blue:247. Hex code is #94D3F7.
+color	#484545	A dark, neutral gray color. Exact RGB values are Red:72, Green:69, Blue:69. Hex code is #484545.	A dark, neutral gray color. Exact RGB values are Red:72, Green:69, Blue:69. Hex code is #484545.
+color	#AB3C87	A light, moderately saturated rose color. Exact RGB values are Red:171, Green:60, Blue:135. Hex code is #AB3C87.	A light, moderately saturated rose color. Exact RGB values are Red:171, Green:60, Blue:135. Hex code is #AB3C87.
+color	#7E56AD	A light, moderately saturated violet color. Exact RGB values are Red:126, Green:86, Blue:173. Hex code is #7E56AD.	A light, moderately saturated violet color. Exact RGB values are Red:126, Green:86, Blue:173. Hex code is #7E56AD.
+color	#FAE5B4	A very light, muted orange color. Exact RGB values are Red:250, Green:229, Blue:180. Hex code is #FAE5B4.	A very light, muted orange color. Exact RGB values are Red:250, Green:229, Blue:180. Hex code is #FAE5B4.
+color	#AAAEB5	A light, neutral gray color. Exact RGB values are Red:170, Green:174, Blue:181. Hex code is #AAAEB5.	A light, neutral gray color. Exact RGB values are Red:170, Green:174, Blue:181. Hex code is #AAAEB5.
+color	#040304	A very dark, muted magenta color. Exact RGB values are Red:4, Green:3, Blue:4. Hex code is #040304.	A very dark, muted magenta color. Exact RGB values are Red:4, Green:3, Blue:4. Hex code is #040304.
+color	#C77A31	A light, highly saturated orange color. Exact RGB values are Red:199, Green:122, Blue:49. Hex code is #C77A31.	A light, highly saturated orange color. Exact RGB values are Red:199, Green:122, Blue:49. Hex code is #C77A31.
+color	#13D275	A light, highly saturated spring green color. Exact RGB values are Red:19, Green:210, Blue:117. Hex code is #13D275.	A light, highly saturated spring green color. Exact RGB values are Red:19, Green:210, Blue:117. Hex code is #13D275.
+color	#9BCCD5	A light, muted cyan color. Exact RGB values are Red:155, Green:204, Blue:213. Hex code is #9BCCD5.	A light, muted cyan color. Exact RGB values are Red:155, Green:204, Blue:213. Hex code is #9BCCD5.
+color	#7C0B0C	A medium, highly saturated red color. Exact RGB values are Red:124, Green:11, Blue:12. Hex code is #7C0B0C.	A medium, highly saturated red color. Exact RGB values are Red:124, Green:11, Blue:12. Hex code is #7C0B0C.
+color	#0AD10F	A light, highly saturated green color. Exact RGB values are Red:10, Green:209, Blue:15. Hex code is #0AD10F.	A light, highly saturated green color. Exact RGB values are Red:10, Green:209, Blue:15. Hex code is #0AD10F.
+color	#303338	A dark, muted azure color. Exact RGB values are Red:48, Green:51, Blue:56. Hex code is #303338.	A dark, muted azure color. Exact RGB values are Red:48, Green:51, Blue:56. Hex code is #303338.
+color	#E0E8EF	A very light, neutral gray color. Exact RGB values are Red:224, Green:232, Blue:239. Hex code is #E0E8EF.	A very light, neutral gray color. Exact RGB values are Red:224, Green:232, Blue:239. Hex code is #E0E8EF.
+color	#D2D6D8	A light, neutral gray color. Exact RGB values are Red:210, Green:214, Blue:216. Hex code is #D2D6D8.	A light, neutral gray color. Exact RGB values are Red:210, Green:214, Blue:216. Hex code is #D2D6D8.
+color	#301A57	A dark, highly saturated violet color. Exact RGB values are Red:48, Green:26, Blue:87. Hex code is #301A57.	A dark, highly saturated violet color. Exact RGB values are Red:48, Green:26, Blue:87. Hex code is #301A57.
+color	#0B157D	A medium, highly saturated blue color. Exact RGB values are Red:11, Green:21, Blue:125. Hex code is #0B157D.	A medium, highly saturated blue color. Exact RGB values are Red:11, Green:21, Blue:125. Hex code is #0B157D.
+color	#F5C5B5	A very light, muted orange color. Exact RGB values are Red:245, Green:197, Blue:181. Hex code is #F5C5B5.	A very light, muted orange color. Exact RGB values are Red:245, Green:197, Blue:181. Hex code is #F5C5B5.
+color	#597C94	A medium, moderately saturated azure color. Exact RGB values are Red:89, Green:124, Blue:148. Hex code is #597C94.	A medium, moderately saturated azure color. Exact RGB values are Red:89, Green:124, Blue:148. Hex code is #597C94.
+color	#347CEF	A very light, highly saturated azure color. Exact RGB values are Red:52, Green:124, Blue:239. Hex code is #347CEF.	A very light, highly saturated azure color. Exact RGB values are Red:52, Green:124, Blue:239. Hex code is #347CEF.
+color	#3EB396	A light, highly saturated cyan color. Exact RGB values are Red:62, Green:179, Blue:150. Hex code is #3EB396.	A light, highly saturated cyan color. Exact RGB values are Red:62, Green:179, Blue:150. Hex code is #3EB396.
+color	#0E3457	A dark, highly saturated azure color. Exact RGB values are Red:14, Green:52, Blue:87. Hex code is #0E3457.	A dark, highly saturated azure color. Exact RGB values are Red:14, Green:52, Blue:87. Hex code is #0E3457.
+color	#9CD467	A light, moderately saturated yellow-green color. Exact RGB values are Red:156, Green:212, Blue:103. Hex code is #9CD467.	A light, moderately saturated yellow-green color. Exact RGB values are Red:156, Green:212, Blue:103. Hex code is #9CD467.
+color	#EE450D	A very light, highly saturated red color. Exact RGB values are Red:238, Green:69, Blue:13. Hex code is #EE450D.	A very light, highly saturated red color. Exact RGB values are Red:238, Green:69, Blue:13. Hex code is #EE450D.
+color	#75471C	A medium, highly saturated orange color. Exact RGB values are Red:117, Green:71, Blue:28. Hex code is #75471C.	A medium, highly saturated orange color. Exact RGB values are Red:117, Green:71, Blue:28. Hex code is #75471C.
+color	#F38C27	A very light, highly saturated orange color. Exact RGB values are Red:243, Green:140, Blue:39. Hex code is #F38C27.	A very light, highly saturated orange color. Exact RGB values are Red:243, Green:140, Blue:39. Hex code is #F38C27.
+color	#B78A60	A light, moderately saturated orange color. Exact RGB values are Red:183, Green:138, Blue:96. Hex code is #B78A60.	A light, moderately saturated orange color. Exact RGB values are Red:183, Green:138, Blue:96. Hex code is #B78A60.
+color	#F9C40B	A very light, highly saturated yellow color. Exact RGB values are Red:249, Green:196, Blue:11. Hex code is #F9C40B.	A very light, highly saturated yellow color. Exact RGB values are Red:249, Green:196, Blue:11. Hex code is #F9C40B.
+color	#828B96	A medium, muted azure color. Exact RGB values are Red:130, Green:139, Blue:150. Hex code is #828B96.	A medium, muted azure color. Exact RGB values are Red:130, Green:139, Blue:150. Hex code is #828B96.
+color	#FAD838	A very light, highly saturated yellow color. Exact RGB values are Red:250, Green:216, Blue:56. Hex code is #FAD838.	A very light, highly saturated yellow color. Exact RGB values are Red:250, Green:216, Blue:56. Hex code is #FAD838.
+color	#46E724	A very light, highly saturated green color. Exact RGB values are Red:70, Green:231, Blue:36. Hex code is #46E724.	A very light, highly saturated green color. Exact RGB values are Red:70, Green:231, Blue:36. Hex code is #46E724.
+color	#C43734	A light, highly saturated red color. Exact RGB values are Red:196, Green:55, Blue:52. Hex code is #C43734.	A light, highly saturated red color. Exact RGB values are Red:196, Green:55, Blue:52. Hex code is #C43734.
+color	#4FA90E	A light, highly saturated yellow-green color. Exact RGB values are Red:79, Green:169, Blue:14. Hex code is #4FA90E.	A light, highly saturated yellow-green color. Exact RGB values are Red:79, Green:169, Blue:14. Hex code is #4FA90E.
+color	#F0974C	A very light, highly saturated orange color. Exact RGB values are Red:240, Green:151, Blue:76. Hex code is #F0974C.	A very light, highly saturated orange color. Exact RGB values are Red:240, Green:151, Blue:76. Hex code is #F0974C.
+color	#327ABA	A light, highly saturated azure color. Exact RGB values are Red:50, Green:122, Blue:186. Hex code is #327ABA.	A light, highly saturated azure color. Exact RGB values are Red:50, Green:122, Blue:186. Hex code is #327ABA.
+color	#8A3FE9	A very light, highly saturated violet color. Exact RGB values are Red:138, Green:63, Blue:233. Hex code is #8A3FE9.	A very light, highly saturated violet color. Exact RGB values are Red:138, Green:63, Blue:233. Hex code is #8A3FE9.
+color	#474DBA	A light, moderately saturated blue color. Exact RGB values are Red:71, Green:77, Blue:186. Hex code is #474DBA.	A light, moderately saturated blue color. Exact RGB values are Red:71, Green:77, Blue:186. Hex code is #474DBA.
+color	#EB0F41	A very light, highly saturated red color. Exact RGB values are Red:235, Green:15, Blue:65. Hex code is #EB0F41.	A very light, highly saturated red color. Exact RGB values are Red:235, Green:15, Blue:65. Hex code is #EB0F41.
+color	#5F5758	A medium, neutral gray color. Exact RGB values are Red:95, Green:87, Blue:88. Hex code is #5F5758.	A medium, neutral gray color. Exact RGB values are Red:95, Green:87, Blue:88. Hex code is #5F5758.
+color	#E00EEE	A very light, highly saturated magenta color. Exact RGB values are Red:224, Green:14, Blue:238. Hex code is #E00EEE.	A very light, highly saturated magenta color. Exact RGB values are Red:224, Green:14, Blue:238. Hex code is #E00EEE.
+color	#B7D53B	A light, highly saturated yellow color. Exact RGB values are Red:183, Green:213, Blue:59. Hex code is #B7D53B.	A light, highly saturated yellow color. Exact RGB values are Red:183, Green:213, Blue:59. Hex code is #B7D53B.
+color	#CCAAF4	A very light, muted violet color. Exact RGB values are Red:204, Green:170, Blue:244. Hex code is #CCAAF4.	A very light, muted violet color. Exact RGB values are Red:204, Green:170, Blue:244. Hex code is #CCAAF4.
+color	#D4A472	A light, moderately saturated orange color. Exact RGB values are Red:212, Green:164, Blue:114. Hex code is #D4A472.	A light, moderately saturated orange color. Exact RGB values are Red:212, Green:164, Blue:114. Hex code is #D4A472.
+color	#355F95	A medium, moderately saturated azure color. Exact RGB values are Red:53, Green:95, Blue:149. Hex code is #355F95.	A medium, moderately saturated azure color. Exact RGB values are Red:53, Green:95, Blue:149. Hex code is #355F95.
+color	#ED413E	A very light, highly saturated red color. Exact RGB values are Red:237, Green:65, Blue:62. Hex code is #ED413E.	A very light, highly saturated red color. Exact RGB values are Red:237, Green:65, Blue:62. Hex code is #ED413E.
+color	#F46A55	A very light, highly saturated red color. Exact RGB values are Red:244, Green:106, Blue:85. Hex code is #F46A55.	A very light, highly saturated red color. Exact RGB values are Red:244, Green:106, Blue:85. Hex code is #F46A55.
+color	#0965F0	A very light, highly saturated azure color. Exact RGB values are Red:9, Green:101, Blue:240. Hex code is #0965F0.	A very light, highly saturated azure color. Exact RGB values are Red:9, Green:101, Blue:240. Hex code is #0965F0.
+color	#1390F5	A very light, highly saturated azure color. Exact RGB values are Red:19, Green:144, Blue:245. Hex code is #1390F5.	A very light, highly saturated azure color. Exact RGB values are Red:19, Green:144, Blue:245. Hex code is #1390F5.
+number_int	0	A integer value of 0.	A integer value of 0.
+number_int	1	A integer value of 1.	A integer value of 1.
+number_int	2	A integer value of 2.	A integer value of 2.
+number_int	3	A integer value of 3.	A integer value of 3.
+number_int	4	A integer value of 4.	A integer value of 4.
+number_int	5	A integer value of 5.	A integer value of 5.
+number_int	6	A integer value of 6.	A integer value of 6.
+number_int	7	A integer value of 7.	A integer value of 7.
+number_int	8	A integer value of 8.	A integer value of 8.
+number_int	9	A integer value of 9.	A integer value of 9.
+number_int	10	A integer value of 10.	A integer value of 10.
+number_int	11	A integer value of 11.	A integer value of 11.
+number_int	12	A integer value of 12.	A integer value of 12.
+number_int	13	A integer value of 13.	A integer value of 13.
+number_int	14	A integer value of 14.	A integer value of 14.
+number_int	15	A integer value of 15.	A integer value of 15.
+number_int	16	A integer value of 16.	A integer value of 16.
+number_int	17	A integer value of 17.	A integer value of 17.
+number_int	18	A integer value of 18.	A integer value of 18.
+number_int	19	A integer value of 19.	A integer value of 19.
+number_int	20	A integer value of 20.	A integer value of 20.
+number_int	21	A integer value of 21.	A integer value of 21.
+number_int	22	A integer value of 22.	A integer value of 22.
+number_int	23	A integer value of 23.	A integer value of 23.
+number_int	24	A integer value of 24.	A integer value of 24.
+number_int	25	A integer value of 25.	A integer value of 25.
+number_int	26	A integer value of 26.	A integer value of 26.
+number_int	27	A integer value of 27.	A integer value of 27.
+number_int	28	A integer value of 28.	A integer value of 28.
+number_int	29	A integer value of 29.	A integer value of 29.
+number_int	30	A integer value of 30.	A integer value of 30.
+number_int	31	A integer value of 31.	A integer value of 31.
+number_int	32	A integer value of 32.	A integer value of 32.
+number_int	33	A integer value of 33.	A integer value of 33.
+number_int	34	A integer value of 34.	A integer value of 34.
+number_int	35	A integer value of 35.	A integer value of 35.
+number_int	36	A integer value of 36.	A integer value of 36.
+number_int	37	A integer value of 37.	A integer value of 37.
+number_int	38	A integer value of 38.	A integer value of 38.
+number_int	39	A integer value of 39.	A integer value of 39.
+number_int	40	A integer value of 40.	A integer value of 40.
+number_int	41	A integer value of 41.	A integer value of 41.
+number_int	42	A integer value of 42.	A integer value of 42.
+number_int	43	A integer value of 43.	A integer value of 43.
+number_int	44	A integer value of 44.	A integer value of 44.
+number_int	45	A integer value of 45.	A integer value of 45.
+number_int	46	A integer value of 46.	A integer value of 46.
+number_int	47	A integer value of 47.	A integer value of 47.
+number_int	48	A integer value of 48.	A integer value of 48.
+number_int	49	A integer value of 49.	A integer value of 49.
+number_int	50	A integer value of 50.	A integer value of 50.
+number_int	51	A integer value of 51.	A integer value of 51.
+number_int	52	A integer value of 52.	A integer value of 52.
+number_int	53	A integer value of 53.	A integer value of 53.
+number_int	54	A integer value of 54.	A integer value of 54.
+number_int	55	A integer value of 55.	A integer value of 55.
+number_int	56	A integer value of 56.	A integer value of 56.
+number_int	57	A integer value of 57.	A integer value of 57.
+number_int	58	A integer value of 58.	A integer value of 58.
+number_int	59	A integer value of 59.	A integer value of 59.
+number_int	60	A integer value of 60.	A integer value of 60.
+number_int	61	A integer value of 61.	A integer value of 61.
+number_int	62	A integer value of 62.	A integer value of 62.
+number_int	63	A integer value of 63.	A integer value of 63.
+number_int	64	A integer value of 64.	A integer value of 64.
+number_int	65	A integer value of 65.	A integer value of 65.
+number_int	66	A integer value of 66.	A integer value of 66.
+number_int	67	A integer value of 67.	A integer value of 67.
+number_int	68	A integer value of 68.	A integer value of 68.
+number_int	69	A integer value of 69.	A integer value of 69.
+number_int	70	A integer value of 70.	A integer value of 70.
+number_int	71	A integer value of 71.	A integer value of 71.
+number_int	72	A integer value of 72.	A integer value of 72.
+number_int	73	A integer value of 73.	A integer value of 73.
+number_int	74	A integer value of 74.	A integer value of 74.
+number_int	75	A integer value of 75.	A integer value of 75.
+number_int	76	A integer value of 76.	A integer value of 76.
+number_int	77	A integer value of 77.	A integer value of 77.
+number_int	78	A integer value of 78.	A integer value of 78.
+number_int	79	A integer value of 79.	A integer value of 79.
+number_int	80	A integer value of 80.	A integer value of 80.
+number_int	81	A integer value of 81.	A integer value of 81.
+number_int	82	A integer value of 82.	A integer value of 82.
+number_int	83	A integer value of 83.	A integer value of 83.
+number_int	84	A integer value of 84.	A integer value of 84.
+number_int	85	A integer value of 85.	A integer value of 85.
+number_int	86	A integer value of 86.	A integer value of 86.
+number_int	87	A integer value of 87.	A integer value of 87.
+number_int	88	A integer value of 88.	A integer value of 88.
+number_int	89	A integer value of 89.	A integer value of 89.
+number_int	90	A integer value of 90.	A integer value of 90.
+number_int	91	A integer value of 91.	A integer value of 91.
+number_int	92	A integer value of 92.	A integer value of 92.
+number_int	93	A integer value of 93.	A integer value of 93.
+number_int	94	A integer value of 94.	A integer value of 94.
+number_int	95	A integer value of 95.	A integer value of 95.
+number_int	96	A integer value of 96.	A integer value of 96.
+number_int	97	A integer value of 97.	A integer value of 97.
+number_int	98	A integer value of 98.	A integer value of 98.
+number_int	99	A integer value of 99.	A integer value of 99.
+number_int	100	A integer value of 100.	A integer value of 100.
+number_int	101	A integer value of 101.	A integer value of 101.
+number_int	102	A integer value of 102.	A integer value of 102.
+number_int	103	A integer value of 103.	A integer value of 103.
+number_int	104	A integer value of 104.	A integer value of 104.
+number_int	105	A integer value of 105.	A integer value of 105.
+number_int	106	A integer value of 106.	A integer value of 106.
+number_int	107	A integer value of 107.	A integer value of 107.
+number_int	108	A integer value of 108.	A integer value of 108.
+number_int	109	A integer value of 109.	A integer value of 109.
+number_int	110	A integer value of 110.	A integer value of 110.
+number_int	111	A integer value of 111.	A integer value of 111.
+number_int	112	A integer value of 112.	A integer value of 112.
+number_int	113	A integer value of 113.	A integer value of 113.
+number_int	114	A integer value of 114.	A integer value of 114.
+number_int	115	A integer value of 115.	A integer value of 115.
+number_int	116	A integer value of 116.	A integer value of 116.
+number_int	117	A integer value of 117.	A integer value of 117.
+number_int	118	A integer value of 118.	A integer value of 118.
+number_int	119	A integer value of 119.	A integer value of 119.
+number_int	120	A integer value of 120.	A integer value of 120.
+number_int	121	A integer value of 121.	A integer value of 121.
+number_int	122	A integer value of 122.	A integer value of 122.
+number_int	123	A integer value of 123.	A integer value of 123.
+number_int	124	A integer value of 124.	A integer value of 124.
+number_int	125	A integer value of 125.	A integer value of 125.
+number_int	126	A integer value of 126.	A integer value of 126.
+number_int	127	A integer value of 127.	A integer value of 127.
+number_int	128	A integer value of 128.	A integer value of 128.
+number_int	129	A integer value of 129.	A integer value of 129.
+number_int	130	A integer value of 130.	A integer value of 130.
+number_int	131	A integer value of 131.	A integer value of 131.
+number_int	132	A integer value of 132.	A integer value of 132.
+number_int	133	A integer value of 133.	A integer value of 133.
+number_int	134	A integer value of 134.	A integer value of 134.
+number_int	135	A integer value of 135.	A integer value of 135.
+number_int	136	A integer value of 136.	A integer value of 136.
+number_int	137	A integer value of 137.	A integer value of 137.
+number_int	138	A integer value of 138.	A integer value of 138.
+number_int	139	A integer value of 139.	A integer value of 139.
+number_int	140	A integer value of 140.	A integer value of 140.
+number_int	141	A integer value of 141.	A integer value of 141.
+number_int	142	A integer value of 142.	A integer value of 142.
+number_int	143	A integer value of 143.	A integer value of 143.
+number_int	144	A integer value of 144.	A integer value of 144.
+number_int	145	A integer value of 145.	A integer value of 145.
+number_int	146	A integer value of 146.	A integer value of 146.
+number_int	147	A integer value of 147.	A integer value of 147.
+number_int	148	A integer value of 148.	A integer value of 148.
+number_int	149	A integer value of 149.	A integer value of 149.
+number_int	150	A integer value of 150.	A integer value of 150.
+number_int	151	A integer value of 151.	A integer value of 151.
+number_int	152	A integer value of 152.	A integer value of 152.
+number_int	153	A integer value of 153.	A integer value of 153.
+number_int	154	A integer value of 154.	A integer value of 154.
+number_int	155	A integer value of 155.	A integer value of 155.
+number_int	156	A integer value of 156.	A integer value of 156.
+number_int	157	A integer value of 157.	A integer value of 157.
+number_int	158	A integer value of 158.	A integer value of 158.
+number_int	159	A integer value of 159.	A integer value of 159.
+number_int	160	A integer value of 160.	A integer value of 160.
+number_int	161	A integer value of 161.	A integer value of 161.
+number_int	162	A integer value of 162.	A integer value of 162.
+number_int	163	A integer value of 163.	A integer value of 163.
+number_int	164	A integer value of 164.	A integer value of 164.
+number_int	165	A integer value of 165.	A integer value of 165.
+number_int	166	A integer value of 166.	A integer value of 166.
+number_int	167	A integer value of 167.	A integer value of 167.
+number_int	168	A integer value of 168.	A integer value of 168.
+number_int	169	A integer value of 169.	A integer value of 169.
+number_int	170	A integer value of 170.	A integer value of 170.
+number_int	171	A integer value of 171.	A integer value of 171.
+number_int	172	A integer value of 172.	A integer value of 172.
+number_int	173	A integer value of 173.	A integer value of 173.
+number_int	174	A integer value of 174.	A integer value of 174.
+number_int	175	A integer value of 175.	A integer value of 175.
+number_int	176	A integer value of 176.	A integer value of 176.
+number_int	177	A integer value of 177.	A integer value of 177.
+number_int	178	A integer value of 178.	A integer value of 178.
+number_int	179	A integer value of 179.	A integer value of 179.
+number_int	180	A integer value of 180.	A integer value of 180.
+number_int	181	A integer value of 181.	A integer value of 181.
+number_int	182	A integer value of 182.	A integer value of 182.
+number_int	183	A integer value of 183.	A integer value of 183.
+number_int	184	A integer value of 184.	A integer value of 184.
+number_int	185	A integer value of 185.	A integer value of 185.
+number_int	186	A integer value of 186.	A integer value of 186.
+number_int	187	A integer value of 187.	A integer value of 187.
+number_int	188	A integer value of 188.	A integer value of 188.
+number_int	189	A integer value of 189.	A integer value of 189.
+number_int	190	A integer value of 190.	A integer value of 190.
+number_int	191	A integer value of 191.	A integer value of 191.
+number_int	192	A integer value of 192.	A integer value of 192.
+number_int	193	A integer value of 193.	A integer value of 193.
+number_int	194	A integer value of 194.	A integer value of 194.
+number_int	195	A integer value of 195.	A integer value of 195.
+number_int	196	A integer value of 196.	A integer value of 196.
+number_int	197	A integer value of 197.	A integer value of 197.
+number_int	198	A integer value of 198.	A integer value of 198.
+number_int	199	A integer value of 199.	A integer value of 199.
+number_int	200	A integer value of 200.	A integer value of 200.
+number_int	201	A integer value of 201.	A integer value of 201.
+number_int	202	A integer value of 202.	A integer value of 202.
+number_int	203	A integer value of 203.	A integer value of 203.
+number_int	204	A integer value of 204.	A integer value of 204.
+number_int	205	A integer value of 205.	A integer value of 205.
+number_int	206	A integer value of 206.	A integer value of 206.
+number_int	207	A integer value of 207.	A integer value of 207.
+number_int	208	A integer value of 208.	A integer value of 208.
+number_int	209	A integer value of 209.	A integer value of 209.
+number_int	210	A integer value of 210.	A integer value of 210.
+number_int	211	A integer value of 211.	A integer value of 211.
+number_int	212	A integer value of 212.	A integer value of 212.
+number_int	213	A integer value of 213.	A integer value of 213.
+number_int	214	A integer value of 214.	A integer value of 214.
+number_int	215	A integer value of 215.	A integer value of 215.
+number_int	216	A integer value of 216.	A integer value of 216.
+number_int	217	A integer value of 217.	A integer value of 217.
+number_int	218	A integer value of 218.	A integer value of 218.
+number_int	219	A integer value of 219.	A integer value of 219.
+number_int	220	A integer value of 220.	A integer value of 220.
+number_int	221	A integer value of 221.	A integer value of 221.
+number_int	222	A integer value of 222.	A integer value of 222.
+number_int	223	A integer value of 223.	A integer value of 223.
+number_int	224	A integer value of 224.	A integer value of 224.
+number_int	225	A integer value of 225.	A integer value of 225.
+number_int	226	A integer value of 226.	A integer value of 226.
+number_int	227	A integer value of 227.	A integer value of 227.
+number_int	228	A integer value of 228.	A integer value of 228.
+number_int	229	A integer value of 229.	A integer value of 229.
+number_int	230	A integer value of 230.	A integer value of 230.
+number_int	231	A integer value of 231.	A integer value of 231.
+number_int	232	A integer value of 232.	A integer value of 232.
+number_int	233	A integer value of 233.	A integer value of 233.
+number_int	234	A integer value of 234.	A integer value of 234.
+number_int	235	A integer value of 235.	A integer value of 235.
+number_int	236	A integer value of 236.	A integer value of 236.
+number_int	237	A integer value of 237.	A integer value of 237.
+number_int	238	A integer value of 238.	A integer value of 238.
+number_int	239	A integer value of 239.	A integer value of 239.
+number_int	240	A integer value of 240.	A integer value of 240.
+number_int	241	A integer value of 241.	A integer value of 241.
+number_int	242	A integer value of 242.	A integer value of 242.
+number_int	243	A integer value of 243.	A integer value of 243.
+number_int	244	A integer value of 244.	A integer value of 244.
+number_int	245	A integer value of 245.	A integer value of 245.
+number_int	246	A integer value of 246.	A integer value of 246.
+number_int	247	A integer value of 247.	A integer value of 247.
+number_int	248	A integer value of 248.	A integer value of 248.
+number_int	249	A integer value of 249.	A integer value of 249.
+number_int	250	A integer value of 250.	A integer value of 250.
+number_int	251	A integer value of 251.	A integer value of 251.
+number_int	252	A integer value of 252.	A integer value of 252.
+number_int	253	A integer value of 253.	A integer value of 253.
+number_int	254	A integer value of 254.	A integer value of 254.
+number_int	255	A integer value of 255.	A integer value of 255.
+number_int	256	A integer value of 256.	A integer value of 256.
+number_int	257	A integer value of 257.	A integer value of 257.
+number_int	258	A integer value of 258.	A integer value of 258.
+number_int	259	A integer value of 259.	A integer value of 259.
+number_int	260	A integer value of 260.	A integer value of 260.
+number_int	261	A integer value of 261.	A integer value of 261.
+number_int	262	A integer value of 262.	A integer value of 262.
+number_int	263	A integer value of 263.	A integer value of 263.
+number_int	264	A integer value of 264.	A integer value of 264.
+number_int	265	A integer value of 265.	A integer value of 265.
+number_int	266	A integer value of 266.	A integer value of 266.
+number_int	267	A integer value of 267.	A integer value of 267.
+number_int	268	A integer value of 268.	A integer value of 268.
+number_int	269	A integer value of 269.	A integer value of 269.
+number_int	270	A integer value of 270.	A integer value of 270.
+number_int	271	A integer value of 271.	A integer value of 271.
+number_int	272	A integer value of 272.	A integer value of 272.
+number_int	273	A integer value of 273.	A integer value of 273.
+number_int	274	A integer value of 274.	A integer value of 274.
+number_int	275	A integer value of 275.	A integer value of 275.
+number_int	276	A integer value of 276.	A integer value of 276.
+number_int	277	A integer value of 277.	A integer value of 277.
+number_int	278	A integer value of 278.	A integer value of 278.
+number_int	279	A integer value of 279.	A integer value of 279.
+number_int	280	A integer value of 280.	A integer value of 280.
+number_int	281	A integer value of 281.	A integer value of 281.
+number_int	282	A integer value of 282.	A integer value of 282.
+number_int	283	A integer value of 283.	A integer value of 283.
+number_int	284	A integer value of 284.	A integer value of 284.
+number_int	285	A integer value of 285.	A integer value of 285.
+number_int	286	A integer value of 286.	A integer value of 286.
+number_int	287	A integer value of 287.	A integer value of 287.
+number_int	288	A integer value of 288.	A integer value of 288.
+number_int	289	A integer value of 289.	A integer value of 289.
+number_int	290	A integer value of 290.	A integer value of 290.
+number_int	291	A integer value of 291.	A integer value of 291.
+number_int	292	A integer value of 292.	A integer value of 292.
+number_int	293	A integer value of 293.	A integer value of 293.
+number_int	294	A integer value of 294.	A integer value of 294.
+number_int	295	A integer value of 295.	A integer value of 295.
+number_int	296	A integer value of 296.	A integer value of 296.
+number_int	297	A integer value of 297.	A integer value of 297.
+number_int	298	A integer value of 298.	A integer value of 298.
+number_int	299	A integer value of 299.	A integer value of 299.
+number_int	300	A integer value of 300.	A integer value of 300.
+number_int	301	A integer value of 301.	A integer value of 301.
+number_int	302	A integer value of 302.	A integer value of 302.
+number_int	303	A integer value of 303.	A integer value of 303.
+number_int	304	A integer value of 304.	A integer value of 304.
+number_int	305	A integer value of 305.	A integer value of 305.
+number_int	306	A integer value of 306.	A integer value of 306.
+number_int	307	A integer value of 307.	A integer value of 307.
+number_int	308	A integer value of 308.	A integer value of 308.
+number_int	309	A integer value of 309.	A integer value of 309.
+number_int	310	A integer value of 310.	A integer value of 310.
+number_int	311	A integer value of 311.	A integer value of 311.
+number_int	312	A integer value of 312.	A integer value of 312.
+number_int	313	A integer value of 313.	A integer value of 313.
+number_int	314	A integer value of 314.	A integer value of 314.
+number_int	315	A integer value of 315.	A integer value of 315.
+number_int	316	A integer value of 316.	A integer value of 316.
+number_int	317	A integer value of 317.	A integer value of 317.
+number_int	318	A integer value of 318.	A integer value of 318.
+number_int	319	A integer value of 319.	A integer value of 319.
+number_int	320	A integer value of 320.	A integer value of 320.
+number_int	321	A integer value of 321.	A integer value of 321.
+number_int	322	A integer value of 322.	A integer value of 322.
+number_int	323	A integer value of 323.	A integer value of 323.
+number_int	324	A integer value of 324.	A integer value of 324.
+number_int	325	A integer value of 325.	A integer value of 325.
+number_int	326	A integer value of 326.	A integer value of 326.
+number_int	327	A integer value of 327.	A integer value of 327.
+number_int	328	A integer value of 328.	A integer value of 328.
+number_int	329	A integer value of 329.	A integer value of 329.
+number_int	330	A integer value of 330.	A integer value of 330.
+number_int	331	A integer value of 331.	A integer value of 331.
+number_int	332	A integer value of 332.	A integer value of 332.
+number_int	333	A integer value of 333.	A integer value of 333.
+number_int	334	A integer value of 334.	A integer value of 334.
+number_int	335	A integer value of 335.	A integer value of 335.
+number_int	336	A integer value of 336.	A integer value of 336.
+number_dec	.00	A high-precision fractional value of 0.00.	A high-precision fractional value of 0.00.
+number_dec	.01	A high-precision fractional value of 0.01.	A high-precision fractional value of 0.01.
+number_dec	.02	A high-precision fractional value of 0.02.	A high-precision fractional value of 0.02.
+number_dec	.03	A high-precision fractional value of 0.03.	A high-precision fractional value of 0.03.
+number_dec	.04	A high-precision fractional value of 0.04.	A high-precision fractional value of 0.04.
+number_dec	.05	A high-precision fractional value of 0.05.	A high-precision fractional value of 0.05.
+number_dec	.06	A high-precision fractional value of 0.06.	A high-precision fractional value of 0.06.
+number_dec	.07	A high-precision fractional value of 0.07.	A high-precision fractional value of 0.07.
+number_dec	.08	A high-precision fractional value of 0.08.	A high-precision fractional value of 0.08.
+number_dec	.09	A high-precision fractional value of 0.09.	A high-precision fractional value of 0.09.
+number_dec	.10	A high-precision fractional value of 0.10.	A high-precision fractional value of 0.10.
+number_dec	.11	A high-precision fractional value of 0.11.	A high-precision fractional value of 0.11.
+number_dec	.12	A high-precision fractional value of 0.12.	A high-precision fractional value of 0.12.
+number_dec	.13	A high-precision fractional value of 0.13.	A high-precision fractional value of 0.13.
+number_dec	.14	A high-precision fractional value of 0.14.	A high-precision fractional value of 0.14.
+number_dec	.15	A high-precision fractional value of 0.15.	A high-precision fractional value of 0.15.
+number_dec	.16	A high-precision fractional value of 0.16.	A high-precision fractional value of 0.16.
+number_dec	.17	A high-precision fractional value of 0.17.	A high-precision fractional value of 0.17.
+number_dec	.18	A high-precision fractional value of 0.18.	A high-precision fractional value of 0.18.
+number_dec	.19	A high-precision fractional value of 0.19.	A high-precision fractional value of 0.19.
+number_dec	.20	A high-precision fractional value of 0.20.	A high-precision fractional value of 0.20.
+number_dec	.21	A high-precision fractional value of 0.21.	A high-precision fractional value of 0.21.
+number_dec	.22	A high-precision fractional value of 0.22.	A high-precision fractional value of 0.22.
+number_dec	.23	A high-precision fractional value of 0.23.	A high-precision fractional value of 0.23.
+number_dec	.24	A high-precision fractional value of 0.24.	A high-precision fractional value of 0.24.
+number_dec	.25	A high-precision fractional value of 0.25.	A high-precision fractional value of 0.25.
+number_dec	.26	A high-precision fractional value of 0.26.	A high-precision fractional value of 0.26.
+number_dec	.27	A high-precision fractional value of 0.27.	A high-precision fractional value of 0.27.
+number_dec	.28	A high-precision fractional value of 0.28.	A high-precision fractional value of 0.28.
+number_dec	.29	A high-precision fractional value of 0.29.	A high-precision fractional value of 0.29.
+number_dec	.30	A high-precision fractional value of 0.30.	A high-precision fractional value of 0.30.
+number_dec	.31	A high-precision fractional value of 0.31.	A high-precision fractional value of 0.31.
+number_dec	.32	A high-precision fractional value of 0.32.	A high-precision fractional value of 0.32.
+number_dec	.33	A high-precision fractional value of 0.33.	A high-precision fractional value of 0.33.
+number_dec	.34	A high-precision fractional value of 0.34.	A high-precision fractional value of 0.34.
+number_dec	.35	A high-precision fractional value of 0.35.	A high-precision fractional value of 0.35.
+number_dec	.36	A high-precision fractional value of 0.36.	A high-precision fractional value of 0.36.
+number_dec	.37	A high-precision fractional value of 0.37.	A high-precision fractional value of 0.37.
+number_dec	.38	A high-precision fractional value of 0.38.	A high-precision fractional value of 0.38.
+number_dec	.39	A high-precision fractional value of 0.39.	A high-precision fractional value of 0.39.
+number_dec	.40	A high-precision fractional value of 0.40.	A high-precision fractional value of 0.40.
+number_dec	.41	A high-precision fractional value of 0.41.	A high-precision fractional value of 0.41.
+number_dec	.42	A high-precision fractional value of 0.42.	A high-precision fractional value of 0.42.
+number_dec	.43	A high-precision fractional value of 0.43.	A high-precision fractional value of 0.43.
+number_dec	.44	A high-precision fractional value of 0.44.	A high-precision fractional value of 0.44.
+number_dec	.45	A high-precision fractional value of 0.45.	A high-precision fractional value of 0.45.
+number_dec	.46	A high-precision fractional value of 0.46.	A high-precision fractional value of 0.46.
+number_dec	.47	A high-precision fractional value of 0.47.	A high-precision fractional value of 0.47.
+number_dec	.48	A high-precision fractional value of 0.48.	A high-precision fractional value of 0.48.
+number_dec	.49	A high-precision fractional value of 0.49.	A high-precision fractional value of 0.49.
+number_dec	.50	A high-precision fractional value of 0.50.	A high-precision fractional value of 0.50.
+number_dec	.51	A high-precision fractional value of 0.51.	A high-precision fractional value of 0.51.
+number_dec	.52	A high-precision fractional value of 0.52.	A high-precision fractional value of 0.52.
+number_dec	.53	A high-precision fractional value of 0.53.	A high-precision fractional value of 0.53.
+number_dec	.54	A high-precision fractional value of 0.54.	A high-precision fractional value of 0.54.
+number_dec	.55	A high-precision fractional value of 0.55.	A high-precision fractional value of 0.55.
+number_dec	.56	A high-precision fractional value of 0.56.	A high-precision fractional value of 0.56.
+number_dec	.57	A high-precision fractional value of 0.57.	A high-precision fractional value of 0.57.
+number_dec	.58	A high-precision fractional value of 0.58.	A high-precision fractional value of 0.58.
+number_dec	.59	A high-precision fractional value of 0.59.	A high-precision fractional value of 0.59.
+number_dec	.60	A high-precision fractional value of 0.60.	A high-precision fractional value of 0.60.
+number_dec	.61	A high-precision fractional value of 0.61.	A high-precision fractional value of 0.61.
+number_dec	.62	A high-precision fractional value of 0.62.	A high-precision fractional value of 0.62.
+number_dec	.63	A high-precision fractional value of 0.63.	A high-precision fractional value of 0.63.
+number_dec	.64	A high-precision fractional value of 0.64.	A high-precision fractional value of 0.64.
+number_dec	.65	A high-precision fractional value of 0.65.	A high-precision fractional value of 0.65.
+number_dec	.66	A high-precision fractional value of 0.66.	A high-precision fractional value of 0.66.
+number_dec	.67	A high-precision fractional value of 0.67.	A high-precision fractional value of 0.67.
+number_dec	.68	A high-precision fractional value of 0.68.	A high-precision fractional value of 0.68.
+number_dec	.69	A high-precision fractional value of 0.69.	A high-precision fractional value of 0.69.
+number_dec	.70	A high-precision fractional value of 0.70.	A high-precision fractional value of 0.70.
+number_dec	.71	A high-precision fractional value of 0.71.	A high-precision fractional value of 0.71.
+number_dec	.72	A high-precision fractional value of 0.72.	A high-precision fractional value of 0.72.
+number_dec	.73	A high-precision fractional value of 0.73.	A high-precision fractional value of 0.73.
+number_dec	.74	A high-precision fractional value of 0.74.	A high-precision fractional value of 0.74.
+number_dec	.75	A high-precision fractional value of 0.75.	A high-precision fractional value of 0.75.
+number_dec	.76	A high-precision fractional value of 0.76.	A high-precision fractional value of 0.76.
+number_dec	.77	A high-precision fractional value of 0.77.	A high-precision fractional value of 0.77.
+number_dec	.78	A high-precision fractional value of 0.78.	A high-precision fractional value of 0.78.
+number_dec	.79	A high-precision fractional value of 0.79.	A high-precision fractional value of 0.79.
+number_dec	.80	A high-precision fractional value of 0.80.	A high-precision fractional value of 0.80.
+number_dec	.81	A high-precision fractional value of 0.81.	A high-precision fractional value of 0.81.
+number_dec	.82	A high-precision fractional value of 0.82.	A high-precision fractional value of 0.82.
+number_dec	.83	A high-precision fractional value of 0.83.	A high-precision fractional value of 0.83.
+number_dec	.84	A high-precision fractional value of 0.84.	A high-precision fractional value of 0.84.
+number_dec	.85	A high-precision fractional value of 0.85.	A high-precision fractional value of 0.85.
+number_dec	.86	A high-precision fractional value of 0.86.	A high-precision fractional value of 0.86.
+number_dec	.87	A high-precision fractional value of 0.87.	A high-precision fractional value of 0.87.
+number_dec	.88	A high-precision fractional value of 0.88.	A high-precision fractional value of 0.88.
+number_dec	.89	A high-precision fractional value of 0.89.	A high-precision fractional value of 0.89.
+number_dec	.90	A high-precision fractional value of 0.90.	A high-precision fractional value of 0.90.
+number_dec	.91	A high-precision fractional value of 0.91.	A high-precision fractional value of 0.91.
+number_dec	.92	A high-precision fractional value of 0.92.	A high-precision fractional value of 0.92.
+number_dec	.93	A high-precision fractional value of 0.93.	A high-precision fractional value of 0.93.
+number_dec	.94	A high-precision fractional value of 0.94.	A high-precision fractional value of 0.94.
+number_dec	.95	A high-precision fractional value of 0.95.	A high-precision fractional value of 0.95.
+number_dec	.96	A high-precision fractional value of 0.96.	A high-precision fractional value of 0.96.
+number_dec	.97	A high-precision fractional value of 0.97.	A high-precision fractional value of 0.97.
+number_dec	.98	A high-precision fractional value of 0.98.	A high-precision fractional value of 0.98.
+number_dec	.99	A high-precision fractional value of 0.99.	A high-precision fractional value of 0.99.
