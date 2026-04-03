@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Data files
+*.parquet
+SVG_refine_grpo/images_whitebg_*/
+!SVG_refine_grpo/images_whitebg_*/.gitkeep
+SVG_refine_grpo/data/
+!SVG_refine_grpo/data/.gitkeep
+
+# Logs and artifacts
+logs/
+trajectory_dump/
+wandb/
+outputs/
+*.log
+
+# Runtime
+*.pid
+
+# verl artifacts
+verl/wandb/
+verl/outputs/
+verl/verl.egg-info/
+
+# LlamaFactory artifacts
+LlamaFactory/swanlog/
+LlamaFactory/data/tokenized/
+LlamaFactory/data/svgmix256_sft_canvas256/*.jsonl
+LlamaFactory/data/svgmix256_sft_canvas256/images/
+!LlamaFactory/data/svgmix256_sft_canvas256/.gitkeep
+LlamaFactory/data/svg_repair_react_once_structmatch/*.jsonl
+LlamaFactory/data/svg_repair_react_once_structmatch/source_image/
+LlamaFactory/data/svg_repair_react_once_structmatch/gt_svg/
+LlamaFactory/data/svg_repair_react_once_structmatch/pred_svg/
+LlamaFactory/data/svg_repair_react_once_structmatch/image_*/
+!LlamaFactory/data/svg_repair_react_once_structmatch/.gitkeep
+
+# OS
+.DS_Store

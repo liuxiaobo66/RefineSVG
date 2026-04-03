@@ -1,0 +1,132 @@
+hydra:
+  searchpath:
+    - file://${VERL_DIR}/verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 1024
+  # 8000 (draft) + ~1200 (tool feedback image+text tokens) + 8000 (final) ≈ 17200
+  # Use 18000 for margin.  Total context = 1024 + 18000 = 19024 ≤ 32768.
+  max_response_length: 18000
+  train_batch_size: 128
+  val_batch_size: 1024
+  return_raw_chat: True
+  image_key: images
+  filter_overlong_prompts: False
+  truncation: left
+
+actor_rollout_ref:
+  hybrid_engine: True
+  model:
+    path: ${MODEL_PATH}
+    use_remove_padding: True
+    enable_gradient_checkpointing: True
+  actor:
+    freeze_vision_tower: true
+    optim:
+      lr: 1e-6
+    ppo_mini_batch_size: 64
+    use_dynamic_bsz: True
+    # 7B model: each sample up to 19024 tokens (1024 + 18000). With ~14GB bf16 weights,
+    # 20480 allows ~1 full-length sample per micro-batch on 95GB GPUs.
+    ppo_max_token_len_per_gpu: 20480
+    clip_ratio: 0.2
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.28
+    clip_ratio_c: 3.0
+    use_kl_loss: True
+    kl_loss_coef: 0.001
+    kl_loss_type: low_var_kl
+    entropy_coeff: 0
+    fsdp_config:
+      param_offload: False
+      optimizer_offload: False
+  rollout:
+    name: sglang
+    mode: async
+    tensor_model_parallel_size: 1
+    # 7B model weights ~14GB bf16.  With free_cache_engine=True,
+    # 0.80 leaves ~62GB for KV cache on 95GB GPUs.
+    # Qwen2.5-VL-7B: 28 layers × 4 KV heads × 128 dim × 2 (K+V) × 2 bytes
+    #   = 57KB/token.  62GB / (19K × 57KB) ≈ 57 concurrent seqs max.
+    gpu_memory_utilization: 0.85
+    free_cache_engine: True
+    # Conservative: 24 concurrent seqs → peak KV ≈ 20GB, safe headroom.
+    max_num_seqs: 128
+    enforce_eager: True
+    # For val-only: n=16 still needed for train batch structure,
+    # but val_kwargs overrides to n=1.
+    n: 32
+    temperature: 1.0
+    top_p: 0.95
+    prompt_length: ${data.max_prompt_length}
+    response_length: ${data.max_response_length}
+    # Validation: greedy decoding for stable evaluation
+    val_kwargs:
+      n: 1
+      do_sample: False
+      temperature: 0
+      top_p: 1.0
+      top_k: -1
+    multi_turn:
+      enable: True
+      max_assistant_turns: 2
+      max_user_turns: 1
+      tool_config_path: ${PROJECT_DIR}/configs/tool_config.yaml
+      max_tool_response_length: 512
+      tool_response_truncate_side: middle
+    agent:
+      num_workers: 32
+      default_agent_loop: svg_react_agent
+      agent_loop_config_path: ${PROJECT_DIR}/configs/agent_prod.yaml
+      task_timeout: 900
+  ref:
+    fsdp_config:
+      param_offload: True
+
+algorithm:
+  adv_estimator: grpo
+  use_kl_in_reward: False
+
+custom_reward_function:
+  path: ${PROJECT_DIR}/svg_reward.py
+  name: compute_score
+  reward_kwargs:
+    clip_api_url: "http://localhost:18080"
+    clip_api_timeout: 60.0
+    canvas_size: 256
+    clip_threshold: 0.3
+    alpha_t: 3.0
+    weight_l2: 0.30
+    weight_dino: 0.50
+    weight_efficiency: 0.20
+    format_failure_penalty: -0.3
+    svg_missing_penalty: -0.5
+    render_failure_penalty: -0.5
+    dino_api_url: "http://localhost:18090"
+    dino_api_timeout: 60.0
+    lpips_api_url: "http://localhost:18100"
+    lpips_api_timeout: 60.0
+
+reward_model:
+  enable: False
+
+trainer:
+  critic_warmup: 0
+  logger:
+    - console
+    - wandb
+  project_name: svg_refine_grpo
+  experiment_name: qwen25vl_7b_4node_val
+  n_gpus_per_node: 8
+  nnodes: 4
+  save_freq: 20
+  max_actor_ckpt_to_keep: 12
+  test_freq: 20
+  total_epochs: 5
+  default_local_dir: ${OUTPUT_DIR}/checkpoints
+  val_before_train: True
+  resume_mode: auto

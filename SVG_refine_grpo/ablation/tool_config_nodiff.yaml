@@ -1,0 +1,7 @@
+tools:
+  - class_name: SVG_refine_grpo.ablation.svg_react_feedback_tool_nodiff.SVGReactFeedbackToolNoDiff
+    config:
+      type: native
+      canvas_size: 256
+      fallback_bg: [255, 255, 255]
+      error_line_color: [220, 20, 60]

@@ -1,0 +1,98 @@
+hydra:
+  searchpath:
+    - file://${VERL_DIR}/verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 1024
+  max_response_length: 8192
+  train_batch_size: 32
+  val_batch_size: 16
+  return_raw_chat: True
+  image_key: images
+  filter_overlong_prompts: True
+  truncation: error
+
+actor_rollout_ref:
+  hybrid_engine: True
+  model:
+    path: ${MODEL_PATH}
+    use_remove_padding: True
+    enable_gradient_checkpointing: True
+  actor:
+    optim:
+      lr: 1e-6
+    ppo_mini_batch_size: 32
+    use_dynamic_bsz: True
+    ppo_max_token_len_per_gpu: 16384
+    use_kl_loss: True
+    kl_loss_coef: 0.001
+    kl_loss_type: low_var_kl
+    entropy_coeff: 0
+    fsdp_config:
+      param_offload: False
+      optimizer_offload: False
+  rollout:
+    name: sglang
+    mode: async
+    tensor_model_parallel_size: 2
+    gpu_memory_utilization: 0.5
+    free_cache_engine: True
+    n: 2
+    temperature: 1.0
+    top_p: 0.95
+    prompt_length: ${data.max_prompt_length}
+    response_length: ${data.max_response_length}
+    multi_turn:
+      enable: True
+      max_assistant_turns: 2
+      max_user_turns: 1
+      tool_config_path: ${PROJECT_DIR}/configs/tool_config.yaml
+      max_tool_response_length: 512
+      tool_response_truncate_side: middle
+    agent:
+      num_workers: 2
+      default_agent_loop: svg_react_agent
+      agent_loop_config_path: ${PROJECT_DIR}/configs/agent_smoke.yaml
+  ref:
+    fsdp_config:
+      param_offload: True
+
+algorithm:
+  adv_estimator: grpo
+  use_kl_in_reward: False
+
+custom_reward_function:
+  path: ${PROJECT_DIR}/svg_reward.py
+  name: compute_score
+  reward_kwargs:
+    clip_api_url: "http://localhost:18080"
+    clip_api_timeout: 30.0
+    canvas_size: 256
+    clip_threshold: 0.3
+    alpha_t: 3.0
+    weight_l2: 0.35
+    weight_dino: 0.35
+    weight_efficiency: 0.3
+    format_failure_penalty: -0.3
+    svg_missing_penalty: -0.5
+    render_failure_penalty: -0.5
+
+reward_model:
+  enable: False
+
+trainer:
+  critic_warmup: 0
+  logger:
+    - console
+  project_name: svg_refine_grpo
+  experiment_name: qwen25vl_3b_smoke
+  n_gpus_per_node: 4
+  nnodes: 1
+  save_freq: -1
+  test_freq: 1
+  total_training_steps: 2
+  val_before_train: False

@@ -1,0 +1,18 @@
+- name: svg_react_agent
+  _target_: SVG_refine_grpo.svg_react_agent_loop.SVGReactAgentLoop
+  tool_name: svg_react_feedback
+  tool_argument_name: svg
+  draft_tag: SVG_DRAFT
+  final_tag: SVG_FINAL
+  include_stop_str_in_output: true
+  feedback_role: user
+  include_tool_text_in_feedback: false
+  terminate_on_draft_render_failure: true
+  draft_max_tokens: 8000
+  final_max_tokens: 8000
+  # Per-stage generation timeout (seconds). If SGLang doesn't return within
+  # this limit, the request is treated as failed (penalty applied) instead of
+  # blocking the entire training batch forever.  180s ≈ 2× the slowest
+  # normal generation observed (~90s) with reduced queue pressure.
+  stage_timeout: 180
+  trajectory_dump_dir: ${PROJECT_DIR}/trajectory_dump

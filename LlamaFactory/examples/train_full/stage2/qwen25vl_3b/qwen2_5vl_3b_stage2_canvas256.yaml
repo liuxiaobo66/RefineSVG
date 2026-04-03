@@ -1,0 +1,68 @@
+### model
+model_name_or_path: ${STAGE1_CHECKPOINT_PATH}
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+resize_vocab: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+freeze_vision_tower: true
+freeze_multi_modal_projector: true
+freeze_language_model: false
+deepspeed: examples/deepspeed/ds_z2_config.json
+flash_attn: fa2
+
+### dataset
+dataset: svg_repair_react_once_structmatch_train_nodiff
+eval_dataset: svg_repair_react_once_structmatch_eval_nodiff
+dataset_dir: ${LLAMA_FACTORY_DIR}/data
+media_dir: ${LLAMA_FACTORY_DIR}/data
+template: qwen2_vl
+cutoff_len: 24576
+overwrite_cache: false
+preprocessing_batch_size: 2048
+preprocessing_num_workers: 64
+dataloader_num_workers: 16
+tokenized_path: ${LLAMA_FACTORY_DIR}/data/tokenized/svg_repair_react_once_structmatch_qwen25vl_3b_cut24576_v1_no_diff
+data_shared_file_system: true
+
+### output
+output_dir: ${OUTPUT_DIR}/stage2_3b
+logging_steps: 5
+save_strategy: epoch
+save_total_limit: 5
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+# use_swanlab: true
+# swanlab_project: LLM4SVG
+# swanlab_workspace: your_username
+# swanlab_run_name: qwen2_5vl_3b_stage2_v1
+# swanlab_mode: cloud
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 1.0e-6
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.01
+bf16: true
+fp16: false
+gradient_checkpointing: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+group_by_length: true
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 20
+
+### generation
+max_length: 32768
+max_new_tokens: 12288

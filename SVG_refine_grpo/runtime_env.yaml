@@ -1,0 +1,13 @@
+working_dir: ./
+excludes:
+  - '/.git/'
+env_vars:
+  # Adjust these paths to your workspace and verl installation:
+  PYTHONPATH: '/path/to/workspace:/path/to/verl'
+  TOKENIZERS_PARALLELISM: 'false'
+  TORCH_NCCL_AVOID_RECORD_STREAMS: '1'
+  VLLM_USE_V1: '1'
+  VLLM_ATTENTION_BACKEND: 'FLASH_ATTN'
+  NCCL_DEBUG: 'WARN'
+  HYDRA_FULL_ERROR: '1'
+  VERL_LOGGING_LEVEL: 'WARN'

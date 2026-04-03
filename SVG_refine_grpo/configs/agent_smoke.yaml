@@ -1,0 +1,12 @@
+- name: svg_react_agent
+  _target_: SVG_refine_grpo.svg_react_agent_loop.SVGReactAgentLoop
+  tool_name: svg_react_feedback
+  tool_argument_name: svg
+  draft_tag: SVG_DRAFT
+  final_tag: SVG_FINAL
+  include_stop_str_in_output: true
+  feedback_role: user
+  include_tool_text_in_feedback: false
+  terminate_on_draft_render_failure: true
+  draft_max_tokens: 4096
+  final_max_tokens: 4096

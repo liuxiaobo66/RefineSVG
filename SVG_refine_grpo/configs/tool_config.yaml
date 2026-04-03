@@ -1,0 +1,8 @@
+tools:
+  - class_name: SVG_refine_grpo.svg_react_feedback_tool.SVGReactFeedbackTool
+    config:
+      type: native
+      canvas_size: 256
+      norm_percentile: 99.0
+      fallback_bg: [255, 255, 255]
+      error_line_color: [220, 20, 60]
