@@ -1,4 +1,4 @@
-# RefineSVG: Multi-Turn Agentic SVG Generation with GRPO
+# RefineSVG: Visual Feedback-Driven Reinforcement Learning for Image-to-SVG Generation
 
 This repository contains the full training pipeline for **RefineSVG**, a multi-turn reinforcement learning framework that refines SVG vector graphics through draft-then-refine agent loops.
 
