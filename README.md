@@ -11,16 +11,18 @@
 [![ACM MM 2026](https://img.shields.io/badge/ACM_MM_2026-Accepted-6f42c1.svg)](https://arxiv.org/abs/2607.27699)
 [![Paper](https://img.shields.io/badge/arXiv-2607.27699-b31b1b.svg?logo=arxiv)](https://arxiv.org/abs/2607.27699)
 [![Weights](https://img.shields.io/badge/Weights-RefineSVG_7B-yellow.svg?logo=huggingface)](https://huggingface.co/xiaobo6668/RefineSVG_7B)
+[![Datasets](https://img.shields.io/badge/Datasets-RefineSVG-green.svg?logo=huggingface)](https://huggingface.co/collections/xiaobo6668/refinesvg-datasets-6ac71c9eb065ad1c6c4f43de)
 [![Code](https://img.shields.io/badge/Code-GitHub-181717.svg?logo=github)](https://github.com/liuxiaobo66/RefineSVG)
 
-[**Paper**](https://arxiv.org/abs/2607.27699) · [**PDF**](https://arxiv.org/pdf/2607.27699) · [**7B checkpoint**](https://huggingface.co/xiaobo6668/RefineSVG_7B) · [**Model files**](https://huggingface.co/xiaobo6668/RefineSVG_7B/tree/main)
+[**Paper**](https://arxiv.org/abs/2607.27699) · [**PDF**](https://arxiv.org/pdf/2607.27699) · [**7B checkpoint**](https://huggingface.co/xiaobo6668/RefineSVG_7B) · [**Models collection**](https://huggingface.co/collections/xiaobo6668/refinesvg-models-6ac71c183d632745cc408192) · [**Datasets collection**](https://huggingface.co/collections/xiaobo6668/refinesvg-datasets-6ac71c9eb065ad1c6c4f43de)
 
 </div>
 
 ## 📣 News
 
 - **ACM MM 2026:** RefineSVG has been accepted at the 34th ACM International Conference on Multimedia.
-- **Model release:** The **7B Stage 3 / post-GRPO checkpoint** is publicly available on [Hugging Face](https://huggingface.co/xiaobo6668/RefineSVG_7B).
+- **Model release:** Stage 1/2 SFT checkpoints and the **7B Stage 3 / post-GRPO checkpoint** are publicly available in the [Hugging Face Models collection](https://huggingface.co/collections/xiaobo6668/refinesvg-models-6ac71c183d632745cc408192).
+- **Data release:** Stage 1/2 training data and Stage 3 RL training/evaluation data are publicly available in the [Hugging Face Datasets collection](https://huggingface.co/collections/xiaobo6668/refinesvg-datasets-6ac71c9eb065ad1c6c4f43de).
 - **Paper:** The [arXiv paper](https://arxiv.org/abs/2607.27699) includes the complete supplementary material.
 
 ## 💡 Overview
@@ -79,13 +81,27 @@ RefineSVG-7B leads **PSNR, SSIM, LPIPS, and MSE among the MLLM-based methods com
 
 ## 📦 Models & Inference
 
-### Released checkpoint
+### Released checkpoints
 
-| Model | Training stage | Download |
+Browse all released weights in the [**RefineSVG · Models collection**](https://huggingface.co/collections/xiaobo6668/refinesvg-models-6ac71c183d632745cc408192).
+
+| Repository | Training stage | Released checkpoints |
 |---|---|---|
-| **RefineSVG-7B** | **Stage 3 / post-GRPO** | [Hugging Face model](https://huggingface.co/xiaobo6668/RefineSVG_7B) · [Files](https://huggingface.co/xiaobo6668/RefineSVG_7B/tree/main) |
+| [**RefineSVG_7B**](https://huggingface.co/xiaobo6668/RefineSVG_7B) | **Stage 3 / post-GRPO** | **Final 7B model** · [Files](https://huggingface.co/xiaobo6668/RefineSVG_7B/tree/main) |
+| [RefineSVG-SFT1](https://huggingface.co/xiaobo6668/RefineSVG-SFT1) | Stage 1 / SVG generation SFT | Qwen2.5-VL 3B/7B; Qwen3-VL 4B/8B |
+| [RefineSVG-SFT2](https://huggingface.co/xiaobo6668/RefineSVG-SFT2) | Stage 2 / visual correction SFT | Qwen2.5-VL 3B/7B |
 
-Download the complete checkpoint, including its tokenizer, processor configuration, and chat template. The paper also evaluates a 3B variant, and the repository contains 3B training configurations; **a 3B checkpoint download is not provided in this release**.
+Download the complete checkpoint, including its tokenizer, processor configuration, and chat template. The released 3B SFT checkpoints are intermediate Stage 1/2 weights; **the released final Stage 3 checkpoint is 7B**.
+
+### Released datasets
+
+Browse the training and evaluation data in the [**RefineSVG · Datasets collection**](https://huggingface.co/collections/xiaobo6668/refinesvg-datasets-6ac71c9eb065ad1c6c4f43de).
+
+| Repository | Contents |
+|---|---|
+| [RefineSVG-Stage1](https://huggingface.co/datasets/xiaobo6668/RefineSVG-Stage1) | Stage 1 image-to-SVG data: train/validation/test Parquet splits at 224/256/336 canvas sizes |
+| [RefineSVG-Stage2](https://huggingface.co/datasets/xiaobo6668/RefineSVG-Stage2) | Stage 2 ReAct SVG repair training data (`stage2_svg_repair_react_once_structmatch.zip`) |
+| [RefineSVG-rl_eval-data](https://huggingface.co/datasets/xiaobo6668/RefineSVG-rl_eval-data) | Stage 3 RL training data and evaluation splits (`train.parquet`, `val.parquet`, `val_MM.parquet`, `val_emoji.parquet`, `val_illustration.parquet`) |
 
 ### Current inference implementation
 
